@@ -1,0 +1,737 @@
+============================================
+ OMBI Evidence: New Comparison Metrics
+ Started: Wed Apr  1 12:12:20 CEST 2026
+============================================
+
+============================================
+ PART 1: Compilation Time & Binary Size
+============================================
+Compiling all implementations (3 runs each for median)...
+In file included from dijkstra_bh.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_bh.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_bh.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_bh,757,21872,21
+  dij_bh: 757ms compile, 21KB binary
+In file included from dijkstra_4h.cc:25:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+dijkstra_4h.cc: In constructor ‘Heap4::Heap4(int)’:
+dijkstra_4h.cc:53:9: warning: ‘Heap4::maxN’ will be initialized after [-Wreorder]
+   53 |     int maxN;
+      |         ^~~~
+dijkstra_4h.cc:52:9: warning:   ‘int Heap4::size’ [-Wreorder]
+   52 |     int size;
+      |         ^~~~
+dijkstra_4h.cc:55:5: warning:   when initialized here [-Wreorder]
+   55 |     Heap4(int n) : maxN(n), size(0) {
+      |     ^~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_4h.cc:25:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+dijkstra_4h.cc: In constructor ‘Heap4::Heap4(int)’:
+dijkstra_4h.cc:53:9: warning: ‘Heap4::maxN’ will be initialized after [-Wreorder]
+   53 |     int maxN;
+      |         ^~~~
+dijkstra_4h.cc:52:9: warning:   ‘int Heap4::size’ [-Wreorder]
+   52 |     int size;
+      |         ^~~~
+dijkstra_4h.cc:55:5: warning:   when initialized here [-Wreorder]
+   55 |     Heap4(int n) : maxN(n), size(0) {
+      |     ^~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_4h.cc:25:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+dijkstra_4h.cc: In constructor ‘Heap4::Heap4(int)’:
+dijkstra_4h.cc:53:9: warning: ‘Heap4::maxN’ will be initialized after [-Wreorder]
+   53 |     int maxN;
+      |         ^~~~
+dijkstra_4h.cc:52:9: warning:   ‘int Heap4::size’ [-Wreorder]
+   52 |     int size;
+      |         ^~~~
+dijkstra_4h.cc:55:5: warning:   when initialized here [-Wreorder]
+   55 |     Heap4(int n) : maxN(n), size(0) {
+      |     ^~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_4h,613,21560,21
+  dij_4h: 613ms compile, 21KB binary
+In file included from dijkstra_fh.cc:28:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_fh.cc:28:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_fh.cc:28:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_fh,747,21584,21
+  dij_fh: 747ms compile, 21KB binary
+In file included from dijkstra_ph.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_ph.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_ph.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_ph,602,21552,21
+  dij_ph: 602ms compile, 21KB binary
+In file included from dijkstra_dial.cc:37:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_dial.cc:37:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_dial.cc:37:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_dial,722,21952,21
+  dij_dial: 722ms compile, 21KB binary
+In file included from dijkstra_radix1.cc:31:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_radix1.cc:31:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_radix1.cc:31:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_r1,739,21968,21
+  dij_r1: 739ms compile, 21KB binary
+In file included from dijkstra_radix2.cc:42:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_radix2.cc:42:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from dijkstra_radix2.cc:42:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+dij_r2,853,26192,25
+  dij_r2: 853ms compile, 25KB binary
+In file included from v27_opt.h:23,
+                 from main.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from v27_opt.h:23,
+                 from v27_opt.cc:14:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from v27_opt.h:23,
+                 from main.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from v27_opt.h:23,
+                 from v27_opt.cc:14:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from v27_opt.h:23,
+                 from main.cc:24:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from v27_opt.h:23,
+                 from v27_opt.cc:14:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from parser_gr.cc:13:
+nodearc_v27.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+nodearc_v27.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+nodearc_v27.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+ombi_bench,1047,30616,29
+  ombi_bench: 1047ms compile, 29KB binary
+In file included from sp.h:12,
+                 from main.cc:8:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+main.cc: In function ‘int main(int, char**)’:
+main.cc:22:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   22 | #define SZ_DIK_SMARTQ   "Dijkstra with Smart Queues"
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cc:104:18: note: in expansion of macro ‘SZ_DIK_SMARTQ’
+  104 |    szAlgorithm = SZ_DIK_SMARTQ;
+      |                  ^~~~~~~~~~~~~
+main.cc:24:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   24 | #define SZ_BFS          "Breadth-First Search"
+      |                         ^~~~~~~~~~~~~~~~~~~~~~
+main.cc:113:22: note: in expansion of macro ‘SZ_BFS’
+  113 |        szAlgorithm = SZ_BFS;
+      |                      ^~~~~~
+In file included from sp.h:12,
+                 from smartq.cc:8:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+In file included from sp.h:12,
+                 from sp.cc:6:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+In file included from parser_gr.cc:14:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+parser_gr.cc: In function ‘int parse_gr(long int*, long int*, Node**, Arc**, long int*, char*)’:
+parser_gr.cc:96:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   96 | /* 0*/    "more than one problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:97:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   97 | /* 1*/    "wrong number of parameters in the problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:98:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   98 | /* 2*/    "it is not a Shortest Path problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:99:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   99 | /* 3*/    "bad value of a parameter in the problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:100:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  100 | /* 4*/    "can't obtain enough memory to solve this problem.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:101:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  101 | /* 5*/    "more than one line with the problem name.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:102:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  102 | /* 6*/    "can't read problem name.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:103:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  103 | /* 7*/    "problem description must preceed source/sink description.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:104:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  104 | /* 8*/    "this parser doesn't support multiple sources/sinks.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:105:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  105 | /* 9*/    "wrong number of parameters in the source/sink line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:106:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  106 | /*10*/    "wrong value of parameters in the source/sink line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:107:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  107 | /*11*/    "this parser doesn't support destination description.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:108:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  108 | /*12*/    "source/sink description must be before arc descriptions.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:109:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  109 | /*13*/    "too many arcs in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:110:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  110 | /*14*/    "wrong number of parameters in the arc line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:111:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  111 | /*15*/    "wrong value of parameters in the arc line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:112:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  112 | /*16*/    "unknown line type in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:113:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  113 | /*17*/    "reading error.",
+      |           ^~~~~~~~~~~~~~~~
+parser_gr.cc:114:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  114 | /*18*/    "not enough arcs in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:115:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  115 | /*20*/    "can't read anything from the input file."
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from sp.h:12,
+                 from main.cc:8:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+main.cc: In function ‘int main(int, char**)’:
+main.cc:22:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   22 | #define SZ_DIK_SMARTQ   "Dijkstra with Smart Queues"
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cc:104:18: note: in expansion of macro ‘SZ_DIK_SMARTQ’
+  104 |    szAlgorithm = SZ_DIK_SMARTQ;
+      |                  ^~~~~~~~~~~~~
+main.cc:24:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   24 | #define SZ_BFS          "Breadth-First Search"
+      |                         ^~~~~~~~~~~~~~~~~~~~~~
+main.cc:113:22: note: in expansion of macro ‘SZ_BFS’
+  113 |        szAlgorithm = SZ_BFS;
+      |                      ^~~~~~
+In file included from sp.h:12,
+                 from smartq.cc:8:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+In file included from sp.h:12,
+                 from sp.cc:6:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+In file included from parser_gr.cc:14:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+parser_gr.cc: In function ‘int parse_gr(long int*, long int*, Node**, Arc**, long int*, char*)’:
+parser_gr.cc:96:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   96 | /* 0*/    "more than one problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:97:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   97 | /* 1*/    "wrong number of parameters in the problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:98:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   98 | /* 2*/    "it is not a Shortest Path problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:99:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   99 | /* 3*/    "bad value of a parameter in the problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:100:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  100 | /* 4*/    "can't obtain enough memory to solve this problem.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:101:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  101 | /* 5*/    "more than one line with the problem name.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:102:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  102 | /* 6*/    "can't read problem name.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:103:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  103 | /* 7*/    "problem description must preceed source/sink description.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:104:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  104 | /* 8*/    "this parser doesn't support multiple sources/sinks.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:105:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  105 | /* 9*/    "wrong number of parameters in the source/sink line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:106:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  106 | /*10*/    "wrong value of parameters in the source/sink line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:107:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  107 | /*11*/    "this parser doesn't support destination description.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:108:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  108 | /*12*/    "source/sink description must be before arc descriptions.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:109:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  109 | /*13*/    "too many arcs in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:110:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  110 | /*14*/    "wrong number of parameters in the arc line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:111:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  111 | /*15*/    "wrong value of parameters in the arc line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:112:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  112 | /*16*/    "unknown line type in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:113:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  113 | /*17*/    "reading error.",
+      |           ^~~~~~~~~~~~~~~~
+parser_gr.cc:114:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  114 | /*18*/    "not enough arcs in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:115:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  115 | /*20*/    "can't read anything from the input file."
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from sp.h:12,
+                 from main.cc:8:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+main.cc: In function ‘int main(int, char**)’:
+main.cc:22:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   22 | #define SZ_DIK_SMARTQ   "Dijkstra with Smart Queues"
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cc:104:18: note: in expansion of macro ‘SZ_DIK_SMARTQ’
+  104 |    szAlgorithm = SZ_DIK_SMARTQ;
+      |                  ^~~~~~~~~~~~~
+main.cc:24:25: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   24 | #define SZ_BFS          "Breadth-First Search"
+      |                         ^~~~~~~~~~~~~~~~~~~~~~
+main.cc:113:22: note: in expansion of macro ‘SZ_BFS’
+  113 |        szAlgorithm = SZ_BFS;
+      |                      ^~~~~~
+In file included from sp.h:12,
+                 from smartq.cc:8:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+In file included from sp.h:12,
+                 from sp.cc:6:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+In file included from parser_gr.cc:14:
+nodearc.h:15:1: warning: ‘typedef’ was ignored in this declaration
+   15 | typedef struct Node;      // so the arc knows about it
+      | ^~~~~~~
+parser_gr.cc: In function ‘int parse_gr(long int*, long int*, Node**, Arc**, long int*, char*)’:
+parser_gr.cc:96:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   96 | /* 0*/    "more than one problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:97:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   97 | /* 1*/    "wrong number of parameters in the problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:98:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   98 | /* 2*/    "it is not a Shortest Path problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:99:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   99 | /* 3*/    "bad value of a parameter in the problem line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:100:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  100 | /* 4*/    "can't obtain enough memory to solve this problem.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:101:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  101 | /* 5*/    "more than one line with the problem name.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:102:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  102 | /* 6*/    "can't read problem name.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:103:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  103 | /* 7*/    "problem description must preceed source/sink description.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:104:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  104 | /* 8*/    "this parser doesn't support multiple sources/sinks.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:105:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  105 | /* 9*/    "wrong number of parameters in the source/sink line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:106:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  106 | /*10*/    "wrong value of parameters in the source/sink line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:107:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  107 | /*11*/    "this parser doesn't support destination description.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:108:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  108 | /*12*/    "source/sink description must be before arc descriptions.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:109:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  109 | /*13*/    "too many arcs in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:110:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  110 | /*14*/    "wrong number of parameters in the arc line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:111:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  111 | /*15*/    "wrong value of parameters in the arc line.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:112:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  112 | /*16*/    "unknown line type in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:113:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  113 | /*17*/    "reading error.",
+      |           ^~~~~~~~~~~~~~~~
+parser_gr.cc:114:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  114 | /*18*/    "not enough arcs in the input.",
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser_gr.cc:115:11: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+  115 | /*20*/    "can't read anything from the input file."
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sq,812,27016,26
+  sq: 812ms compile, 26KB binary
+
+Compilation results saved to: results/compile_benchmark.csv
+
+============================================
+ PART 2: Cache Miss Profiling (perf stat)
+============================================
+WARNING: 'perf' not found. Skipping cache profiling.
+Install with: sudo apt install linux-tools-generic linux-tools-6.6.87.2-microsoft-standard-WSL2
+If in WSL2, you may need to build perf from source.
+
+ALTERNATIVE: If perf is not available, try:
+  sudo perf stat -e cycles,instructions,L1-dcache-load-misses,LLC-load-misses ./ombi_bench /mnt/d/Projects/Practice/Research/nexus3/csharp/data/USA-road-t.BAY.gr /mnt/d/Projects/Practice/Research/nexus3/csharp/data/USA-road-t.BAY.ss /dev/null
+
+Or use valgrind --tool=cachegrind:
+  valgrind --tool=cachegrind ./ombi_bench /mnt/d/Projects/Practice/Research/nexus3/csharp/data/USA-road-t.BAY.gr /mnt/d/Projects/Practice/Research/nexus3/csharp/data/USA-road-t.BAY.ss /dev/null
+
+============================================
+ SUMMARY
+============================================
+Completed: Wed Apr  1 12:12:41 CEST 2026
+
+Output files:
+  Compilation:     results/compile_benchmark.csv
+  Full log:        results/new_comparisons.log
+
+Next steps:
+  1. Review results/compile_benchmark.csv
+  2. Review results/cache_profiling.csv (if perf available)
+  3. Share results with Krutaka for EVIDENCE.md update

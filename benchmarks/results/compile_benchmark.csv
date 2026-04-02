@@ -1,0 +1,9 @@
+impl,compile_time_ms,binary_size_bytes,binary_size_kb
+dij_bh,757,21872,21
+dij_4h,613,21560,21
+dij_fh,747,21584,21
+dij_ph,602,21552,21
+dij_dial,722,21952,21
+dij_r1,739,21968,21
+dij_r2,853,26192,25
+ombi_bench,1047,30616,29
