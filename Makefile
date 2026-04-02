@@ -34,18 +34,21 @@ BIN_DIR   = bin
 # =============================================================================
 # Phony targets
 # =============================================================================
-.PHONY: all ombi baselines smartq tools clean help
+.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot clean help
 
 help:
 	@echo ""
 	@echo "  OMBI — Build Targets"
-	@echo "  ════════════════════════════════════════════"
+	@echo "  ════════════════════════════════════════════════════════════"
 	@echo ""
 	@echo "  make              Build OMBI (timing + checksum)"
-	@echo "  make all          Build everything"
+	@echo "  make all          Build everything (OMBI + variants + baselines + SQ + CH)"
+	@echo "  make ombi-variants Build OMBI opt + v2 variants"
 	@echo "  make baselines    Build all 8 baseline Dijkstra variants"
 	@echo "  make smartq       Build Goldberg's Smart Queue"
 	@echo "  make tools        Build utility programs"
+	@echo "  make sweep-bw     Build OMBI with BW_MULT = 1,2,3,4,6,8"
+	@echo "  make sweep-hot    Build OMBI with HOT_BUCKETS = 2^10..2^18"
 	@echo "  make clean        Remove all binaries"
 	@echo ""
 	@echo "  Individual baselines:"
@@ -67,7 +70,13 @@ ombi: $(BIN_DIR)/ombi $(BIN_DIR)/ombiC
 # =============================================================================
 # All: OMBI + baselines + Smart Queue + tools
 # =============================================================================
-all: ombi baselines smartq tools
+all: ombi ombi-variants baselines smartq tools
+
+# =============================================================================
+# OMBI variants (opt + v2)
+# =============================================================================
+ombi-variants: $(BIN_DIR)/ombi_opt $(BIN_DIR)/ombi_optC \
+               $(BIN_DIR)/ombi_v2 $(BIN_DIR)/ombi_v2C
 
 # =============================================================================
 # OMBI — core algorithm
@@ -176,6 +185,35 @@ tools: $(BIN_DIR)/gen_grid
 
 $(BIN_DIR)/gen_grid: $(TOOLS_DIR)/gen_grid.cc | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $@ $(TOOLS_DIR)/gen_grid.cc $(LDFLAGS)
+
+# =============================================================================
+# Sensitivity sweeps — BW_MULT and HOT_BUCKETS
+# =============================================================================
+
+# BW_MULT sweep: 1, 2, 3, 4, 6, 8
+BW_VALS = 1 2 3 4 6 8
+sweep-bw: | $(BIN_DIR)
+	@for bw in $(BW_VALS); do \
+		echo "Building ombi_bw$${bw}..."; \
+		$(CXX) $(CXXFLAGS) -DOMBI_BW_MULT=$${bw} -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_bw$${bw} $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi.cc $(INFRA_SRC) $(LDFLAGS); \
+		$(CXX) $(CXXFLAGS) -DOMBI_BW_MULT=$${bw} -DCHECKSUM -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_bw$${bw}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi.cc $(INFRA_SRC) $(LDFLAGS); \
+	done
+	@echo "BW_MULT sweep complete: ombi_bw{1,2,3,4,6,8}"
+
+# HOT_BUCKETS sweep: 2^10, 2^11, 2^12, 2^13, 2^14, 2^15, 2^16, 2^17, 2^18
+HOT_VALS = 10 11 12 13 14 15 16 17 18
+sweep-hot: | $(BIN_DIR)
+	@for exp in $(HOT_VALS); do \
+		hb=$$((1 << $${exp})); \
+		echo "Building ombi_hot$${exp} (HOT_BUCKETS=$$hb)..."; \
+		$(CXX) $(CXXFLAGS) -DOMBI_HOT_BUCKETS="(1 << $${exp})" -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_hot$${exp} $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi.cc $(INFRA_SRC) $(LDFLAGS); \
+		$(CXX) $(CXXFLAGS) -DOMBI_HOT_BUCKETS="(1 << $${exp})" -DCHECKSUM -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_hot$${exp}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi.cc $(INFRA_SRC) $(LDFLAGS); \
+	done
+	@echo "HOT_BUCKETS sweep complete: ombi_hot{10..18}"
 
 # =============================================================================
 # Clean

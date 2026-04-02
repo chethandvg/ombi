@@ -35,8 +35,11 @@
 class OmbiQueue {
 public:
     /* Configuration constants */
-    static constexpr int HOT_BUCKETS = 1 << 14;          /* 16384 */
-    static constexpr int BMP_WORDS   = HOT_BUCKETS >> 6;  /* 256 */
+#ifndef OMBI_HOT_BUCKETS
+#define OMBI_HOT_BUCKETS (1 << 14)
+#endif
+    static constexpr int HOT_BUCKETS = OMBI_HOT_BUCKETS;   /* default: 16384 */
+    static constexpr int BMP_WORDS   = HOT_BUCKETS >> 6;
     static constexpr int MASK        = HOT_BUCKETS - 1;
 #ifndef OMBI_BW_MULT
 #define OMBI_BW_MULT 4
