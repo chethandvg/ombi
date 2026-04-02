@@ -26,7 +26,7 @@ BIN_DIR="${PROJECT_ROOT}/bin"
 RESULTS_DIR="${PROJECT_ROOT}/benchmarks/results"
 
 # *** EDIT THIS: path to your DIMACS road network .gr and .ss files ***
-DATA_DIR="${DATA_DIR:-/path/to/dimacs/data}"
+DATA_DIR="${DATA_DIR:-${PROJECT_ROOT}/data}"
 
 RUNS=5  # Number of timing runs per graph (median reported)
 
@@ -84,11 +84,11 @@ echo "  ✅ All binaries found"
 echo ""
 
 # Check data directory
-if [ ! -d "${DATA_DIR}" ] || [ "${DATA_DIR}" = "/path/to/dimacs/data" ]; then
+if [ ! -d "${DATA_DIR}" ]; then
     echo "  ❌ DATA_DIR not set or doesn't exist: ${DATA_DIR}"
     echo ""
     echo "  Set it via environment variable:"
-    echo "    export DATA_DIR=/mnt/d/path/to/dimacs/data"
+    echo "    export DATA_DIR=/path/to/your/dimacs/data"
     echo "    ./benchmarks/scripts/run_benchmark.sh"
     echo ""
     echo "  Or edit DATA_DIR in this script."

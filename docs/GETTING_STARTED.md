@@ -214,7 +214,8 @@ All implementations produce **identical checksums** on all 5 graphs (45/45 tests
 
 ```bash
 # If data is on Windows drive:
-export DATA_DIR=/mnt/d/path/to/dimacs/data
+# DATA_DIR defaults to ./data -- only set if your data is elsewhere:
+# export DATA_DIR=/path/to/your/dimacs/data
 
 # For best performance, copy data to WSL filesystem:
 cp /mnt/d/path/to/data/*.gr ~/data/

@@ -18,7 +18,7 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 BIN_DIR="${PROJECT_ROOT}/bin"
 RESULTS_DIR="${PROJECT_ROOT}/benchmarks/results"
 
-DATA_DIR="${DATA_DIR:-/path/to/dimacs/data}"
+DATA_DIR="${DATA_DIR:-$(cd "$(dirname "$0")/../.." && pwd)/data}"
 
 GRAPHS=(
     "USA-road-t.BAY"
@@ -35,7 +35,7 @@ echo "║  OMBI — Checksum Verification                              ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 
-if [ ! -d "${DATA_DIR}" ] || [ "${DATA_DIR}" = "/path/to/dimacs/data" ]; then
+if [ ! -d "${DATA_DIR}" ]; then
     echo "  ❌ Set DATA_DIR first:  export DATA_DIR=/path/to/data"
     exit 1
 fi
