@@ -651,7 +651,7 @@ long OmbiQueue::sssp(const CsrGraph &g, int source)
                 vs[v].distGen = curGen;
                 statUpdates++;
 
-                /* Three-way insert: L0 (fast) → L1 (fast) → cold PQ (rare) */
+                /* Three-way insert: L0 (fast) → L1 + cold PQ backup → cold PQ */
                 if (OMBI_LIKELY(nd < l0End))
                 {
                     int bi = (int)((nd / bw) & L0_MASK);
@@ -662,6 +662,11 @@ long OmbiQueue::sssp(const CsrGraph &g, int source)
                 {
                     int l1bi = (int)((nd / l1bw) & L1_MASK);
                     addToL1(l1bi, v, nd);
+                    /* Cold PQ backup: ensures correct Dijkstra ordering
+                     * even if L1 redistribution timing is imperfect.
+                     * The stale check discards whichever copy is processed
+                     * second, so there is no double-processing. */
+                    coldPQ.push({nd, v});
                 }
                 else
                 {
