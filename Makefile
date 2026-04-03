@@ -76,7 +76,8 @@ all: ombi ombi-variants baselines smartq tools
 # OMBI variants (opt + v2)
 # =============================================================================
 ombi-variants: $(BIN_DIR)/ombi_opt $(BIN_DIR)/ombi_optC \
-               $(BIN_DIR)/ombi_v2 $(BIN_DIR)/ombi_v2C
+               $(BIN_DIR)/ombi_v2 $(BIN_DIR)/ombi_v2C \
+               $(BIN_DIR)/ombi_v3 $(BIN_DIR)/ombi_v3C
 
 # =============================================================================
 # OMBI — core algorithm
@@ -104,6 +105,13 @@ $(BIN_DIR)/ombi_v2: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_opt2.cc $(OMBI_DIR)/omb
 
 $(BIN_DIR)/ombi_v2C: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_opt2.cc $(OMBI_DIR)/ombi_opt2.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -DOMBI_V2 -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_opt2.cc $(INFRA_SRC) $(LDFLAGS)
+
+# OMBI v3 with Two-Level Bitmap + Pool Allocator (uses ombi_v3.cc)
+$(BIN_DIR)/ombi_v3: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(OMBI_DIR)/ombi_v3.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V3 -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS)
+
+$(BIN_DIR)/ombi_v3C: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(OMBI_DIR)/ombi_v3.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V3 -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS)
 
 # =============================================================================
 # Baselines — 8 Dijkstra variants
