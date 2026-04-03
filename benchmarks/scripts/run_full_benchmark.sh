@@ -24,7 +24,7 @@
 #
 #   ANALYSIS:
 #    12. Scalability analysis     — regression of time vs graph size
-#    13. OMBI variant comparison  — base, opt, v2 (caliber/F-set)
+#    13. OMBI variant comparison  — base, opt, v2 (caliber/F-set), v3 (two-level bitmap)
 #    14. BW_MULT sensitivity      — bw = {1,2,3,4,6,8} × minArcLen
 #    15. HOT_BUCKETS sweep        — 2^10 .. 2^18
 #    16. CH integration           — Contraction Hierarchies (preprocessing + query)
@@ -41,7 +41,7 @@
 #
 # Usage:
 #   cd /mnt/d/Projects/Practice/Research/ombi
-#   make all && make sweep-bw && make sweep-hot
+#   make all && make sweep-bw && make sweep-hot && make sweep-bw-v3 && make sweep-hot-v3
 #   ./benchmarks/scripts/run_full_benchmark.sh 2>&1 | tee benchmarks/results/full_benchmark_$(date +%Y%m%d_%H%M%S).log
 #
 
@@ -93,6 +93,7 @@ CORE_IMPLS=(
     "r1:dij_r1:dij_r1C"
     "r2:dij_r2:dij_r2C"
     "ombi:ombi:ombiC"
+    "ombi_v3:ombi_v3:ombi_v3C"
     "sq:sq:sqC"
     "ch:dij_ch:dij_chC"
 )
@@ -102,6 +103,7 @@ VARIANT_IMPLS=(
     "ombi:ombi:ombiC"
     "ombi_opt:ombi_opt:ombi_optC"
     "ombi_v2:ombi_v2:ombi_v2C"
+    "ombi_v3:ombi_v3:ombi_v3C"
 )
 
 # --- BW_MULT sweep ---
@@ -189,6 +191,32 @@ else
     echo "  ⚠️  No HOT sweep binaries — run 'make sweep-hot' to enable"
 fi
 
+# BW sweep v3 — optional
+bw_v3_available=0
+for bw in "${BW_VALS[@]}"; do
+    if [ -f "${BIN_DIR}/ombi_v3_bw${bw}" ]; then
+        bw_v3_available=$((bw_v3_available + 1))
+    fi
+done
+if [ "${bw_v3_available}" -gt 0 ]; then
+    echo "  ✅ BW_MULT v3 sweep binaries: ${bw_v3_available}/${#BW_VALS[@]}"
+else
+    echo "  ⚠️  No BW v3 sweep binaries — run 'make sweep-bw-v3' to enable"
+fi
+
+# HOT sweep v3 — optional
+hot_v3_available=0
+for exp in "${HOT_EXPS[@]}"; do
+    if [ -f "${BIN_DIR}/ombi_v3_hot${exp}" ]; then
+        hot_v3_available=$((hot_v3_available + 1))
+    fi
+done
+if [ "${hot_v3_available}" -gt 0 ]; then
+    echo "  ✅ HOT_BUCKETS v3 sweep binaries: ${hot_v3_available}/${#HOT_EXPS[@]}"
+else
+    echo "  ⚠️  No HOT v3 sweep binaries — run 'make sweep-hot-v3' to enable"
+fi
+
 # Data directory
 if [ ! -d "${DATA_DIR}" ]; then
     echo "  ❌ DATA_DIR not found: ${DATA_DIR}"
@@ -256,6 +284,8 @@ SCALABILITY_CSV="${RESULTS_DIR}/full_scalability_${TIMESTAMP}.csv"
 VARIANT_CSV="${RESULTS_DIR}/full_variants_${TIMESTAMP}.csv"
 BW_CSV="${RESULTS_DIR}/full_bw_sweep_${TIMESTAMP}.csv"
 HOT_CSV="${RESULTS_DIR}/full_hot_sweep_${TIMESTAMP}.csv"
+BW_V3_CSV="${RESULTS_DIR}/full_bw_v3_sweep_${TIMESTAMP}.csv"
+HOT_V3_CSV="${RESULTS_DIR}/full_hot_v3_sweep_${TIMESTAMP}.csv"
 
 echo "graph,graph_type,impl,run,time_ms,scans,updates,peak_rss_kb" > "${RAW_CSV}"
 echo "graph,graph_type,impl,median_ms,mean_ms,stddev_ms,min_ms,max_ms,ci95_low,ci95_high,avg_scans,avg_updates,peak_rss_kb,ns_per_scan,ns_per_update,throughput_nodes_per_sec,ratio_vs_bh,checksum_ok" > "${STATS_CSV}"
@@ -266,6 +296,8 @@ echo "graph_type,impl,graph,nodes,median_ms,log_nodes,log_ms" > "${SCALABILITY_C
 echo "graph,graph_type,variant,median_ms,mean_ms,stddev_ms,ci95_low,ci95_high,scans,updates,ratio_vs_base" > "${VARIANT_CSV}"
 echo "graph,bw_mult,median_ms,mean_ms,stddev_ms,ci95_low,ci95_high,ratio_vs_bw4" > "${BW_CSV}"
 echo "graph,hot_exp,hot_buckets,median_ms,mean_ms,stddev_ms,ci95_low,ci95_high,ratio_vs_14" > "${HOT_CSV}"
+echo "graph,bw_mult,median_ms,mean_ms,stddev_ms,ci95_low,ci95_high,ratio_vs_bw4" > "${BW_V3_CSV}"
+echo "graph,hot_exp,hot_buckets,median_ms,mean_ms,stddev_ms,ci95_low,ci95_high,ratio_vs_14" > "${HOT_V3_CSV}"
 
 # =====================================================================
 # STATISTICS HELPERS
@@ -330,6 +362,7 @@ MAKE_TARGETS=(
     "ombi:bin/ombi"
     "ombi_opt:bin/ombi_opt"
     "ombi_v2:bin/ombi_v2"
+    "ombi_v3:bin/ombi_v3"
     "dij_bh:bin/dij_bh"
     "dij_4h:bin/dij_4h"
     "dij_fh:bin/dij_fh"
@@ -602,7 +635,7 @@ fi
 # SECTION 3: OMBI VARIANT COMPARISON
 # =====================================================================
 echo "╔══════════════════════════════════════════════════════════════════════════════╗"
-echo "║  SECTION 3: OMBI Variant Comparison (base vs opt vs v2-caliber)            ║"
+echo "║  SECTION 3: OMBI Variant Comparison (base vs opt vs v2 vs v3)              ║"
 echo "╚══════════════════════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -746,6 +779,117 @@ if [ "${hot_available}" -gt 0 ]; then
                        "${local_ratio}"
 
                 echo "${graph},${exp},${hot_buckets},${LAST_MEDIAN},${LAST_MEAN},${LAST_STDDEV},${LAST_CI_LOW},${LAST_CI_HIGH},${local_ratio}" >> "${HOT_CSV}"
+            fi
+        done
+        echo "└──────────────────────────────────────────────────────────────────────────────"
+        echo ""
+    done
+fi
+
+# =====================================================================
+# SECTION 4b: BW_MULT SENSITIVITY SWEEP — OMBI v3
+# =====================================================================
+if [ "${bw_v3_available}" -gt 0 ]; then
+    echo "╔══════════════════════════════════════════════════════════════════════════════╗"
+    echo "║  SECTION 4b: BW_MULT Sensitivity Sweep — OMBI v3 (bw = {1..8} × minArc)   ║"
+    echo "╚══════════════════════════════════════════════════════════════════════════════╝"
+    echo ""
+
+    BW_V3_TEST_GRAPHS=("USA-road-t.BAY" "USA-road-t.COL" "USA-road-t.FLA")
+
+    for graph in "${BW_V3_TEST_GRAPHS[@]}"; do
+        short="${graph#USA-road-t.}"
+        gr_file="${DATA_DIR}/${graph}.gr"
+        ss_file="${DATA_DIR}/${graph}.ss"
+        [ ! -f "${gr_file}" ] || [ ! -f "${ss_file}" ] && continue
+
+        echo "┌─ BW v3 SWEEP: ${short} ───────────────────────────────────────────────────"
+        printf "│  %-8s │ %10s │ %8s │ %8s │ %16s │ %8s\n" \
+               "BW_MULT" "Median(ms)" "Mean" "StdDev" "95% CI" "vs bw=4"
+        echo "│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────"
+
+        bw4_v3_median=""
+        for bw in "${BW_VALS[@]}"; do
+            tbin="ombi_v3_bw${bw}"
+            cbin="ombi_v3_bw${bw}C"
+            [ ! -f "${BIN_DIR}/${tbin}" ] && continue
+
+            impl_spec="v3_bw${bw}:${tbin}:${cbin}"
+            BH_REF_CHECKSUM=""
+            if run_impl_benchmark "road" "${graph}" "${short}_bw_v3" "${impl_spec}" "/dev/null" 2>/dev/null; then
+                [ "${bw}" -eq 4 ] && bw4_v3_median="${LAST_MEDIAN}"
+
+                local_ratio="N/A"
+                if [ -n "${bw4_v3_median}" ] && [ "${bw4_v3_median}" != "0" ]; then
+                    local_ratio=$(echo "${LAST_MEDIAN} ${bw4_v3_median}" | awk '{printf "%.3f",$1/$2}')
+                fi
+
+                ci_str="[$(echo "${LAST_CI_LOW}" | awk '{printf "%.3f",$1}'),$(echo "${LAST_CI_HIGH}" | awk '{printf "%.3f",$1}')]"
+                printf "│  %-8s │ %10s │ %8s │ %8s │ %16s │ %8s\n" \
+                       "${bw}" \
+                       "$(echo "${LAST_MEDIAN}" | awk '{printf "%.3f",$1}')" \
+                       "$(echo "${LAST_MEAN}" | awk '{printf "%.3f",$1}')" \
+                       "$(echo "${LAST_STDDEV}" | awk '{printf "%.4f",$1}')" \
+                       "${ci_str}" \
+                       "${local_ratio}"
+
+                echo "${graph},${bw},${LAST_MEDIAN},${LAST_MEAN},${LAST_STDDEV},${LAST_CI_LOW},${LAST_CI_HIGH},${local_ratio}" >> "${BW_V3_CSV}"
+            fi
+        done
+        echo "└──────────────────────────────────────────────────────────────────────────────"
+        echo ""
+    done
+fi
+
+# =====================================================================
+# SECTION 5b: HOT_BUCKETS SIZE SWEEP — OMBI v3
+# =====================================================================
+if [ "${hot_v3_available}" -gt 0 ]; then
+    echo "╔══════════════════════════════════════════════════════════════════════════════╗"
+    echo "║  SECTION 5b: HOT_BUCKETS Size Sweep — OMBI v3 (2^10 .. 2^18)              ║"
+    echo "╚══════════════════════════════════════════════════════════════════════════════╝"
+    echo ""
+
+    HOT_V3_TEST_GRAPHS=("USA-road-t.BAY" "USA-road-t.COL" "USA-road-t.FLA")
+
+    for graph in "${HOT_V3_TEST_GRAPHS[@]}"; do
+        short="${graph#USA-road-t.}"
+        gr_file="${DATA_DIR}/${graph}.gr"
+        ss_file="${DATA_DIR}/${graph}.ss"
+        [ ! -f "${gr_file}" ] || [ ! -f "${ss_file}" ] && continue
+
+        echo "┌─ HOT v3 SWEEP: ${short} ──────────────────────────────────────────────────"
+        printf "│  %-6s │ %10s │ %10s │ %8s │ %8s │ %16s │ %8s\n" \
+               "2^exp" "Buckets" "Median(ms)" "Mean" "StdDev" "95% CI" "vs 2^14"
+        echo "│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────"
+
+        hot14_v3_median=""
+        for exp in "${HOT_EXPS[@]}"; do
+            tbin="ombi_v3_hot${exp}"
+            cbin="ombi_v3_hot${exp}C"
+            [ ! -f "${BIN_DIR}/${tbin}" ] && continue
+
+            hot_buckets=$((1 << exp))
+            impl_spec="v3_hot${exp}:${tbin}:${cbin}"
+            BH_REF_CHECKSUM=""
+            if run_impl_benchmark "road" "${graph}" "${short}_hot_v3" "${impl_spec}" "/dev/null" 2>/dev/null; then
+                [ "${exp}" -eq 14 ] && hot14_v3_median="${LAST_MEDIAN}"
+
+                local_ratio="N/A"
+                if [ -n "${hot14_v3_median}" ] && [ "${hot14_v3_median}" != "0" ]; then
+                    local_ratio=$(echo "${LAST_MEDIAN} ${hot14_v3_median}" | awk '{printf "%.3f",$1/$2}')
+                fi
+
+                ci_str="[$(echo "${LAST_CI_LOW}" | awk '{printf "%.3f",$1}'),$(echo "${LAST_CI_HIGH}" | awk '{printf "%.3f",$1}')]"
+                printf "│  2^%-4s │ %10d │ %10s │ %8s │ %8s │ %16s │ %8s\n" \
+                       "${exp}" "${hot_buckets}" \
+                       "$(echo "${LAST_MEDIAN}" | awk '{printf "%.3f",$1}')" \
+                       "$(echo "${LAST_MEAN}" | awk '{printf "%.3f",$1}')" \
+                       "$(echo "${LAST_STDDEV}" | awk '{printf "%.4f",$1}')" \
+                       "${ci_str}" \
+                       "${local_ratio}"
+
+                echo "${graph},${exp},${hot_buckets},${LAST_MEDIAN},${LAST_MEAN},${LAST_STDDEV},${LAST_CI_LOW},${LAST_CI_HIGH},${local_ratio}" >> "${HOT_V3_CSV}"
             fi
         done
         echo "└──────────────────────────────────────────────────────────────────────────────"

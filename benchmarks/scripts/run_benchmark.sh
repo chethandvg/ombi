@@ -50,6 +50,7 @@ IMPLS=(
     "r1:dij_r1:dij_r1C"
     "r2:dij_r2:dij_r2C"
     "ombi:ombi:ombiC"
+    "ombi_v3:ombi_v3:ombi_v3C"
     "sq:sq:sqC"
 )
 

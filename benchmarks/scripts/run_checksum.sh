@@ -28,7 +28,7 @@ GRAPHS=(
     "USA-road-t.NE"
 )
 
-IMPLS=( "dij_bhC" "dij_4hC" "dij_fhC" "dij_phC" "dij_dialC" "dij_r1C" "dij_r2C" "ombiC" "sqC" )
+IMPLS=( "dij_bhC" "dij_4hC" "dij_fhC" "dij_phC" "dij_dialC" "dij_r1C" "dij_r2C" "ombiC" "ombi_v3C" "sqC" )
 
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║  OMBI — Checksum Verification                              ║"
