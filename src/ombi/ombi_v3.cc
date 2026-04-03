@@ -578,13 +578,26 @@ long OmbiQueue::sssp(const CsrGraph &g, int source)
                 l1Cursor = (int)(du / l1bw);
                 lastBucketCirc = -1;
 
-                /* Push old vertex back using three-way insert */
+                /* Push old vertex back directly to L0 (matching v1 behavior).
+                 * When cold PQ wins, trueCursor jumps backward. The old vertex
+                 * must go back to L0 at its circular position — not through
+                 * insertThreeWay which might route it to L1/cold based on
+                 * the new (smaller) cursor positions. */
                 if (oldU >= 0)
-                    insertThreeWay(oldU, oldDu, bw, l1bw, trueCursor, l1Cursor, l0Total);
+                {
+                    int pc = (int)((oldDu / bw) & L0_MASK);
+                    addToL0(pc, oldU, oldDu);
+                    l0Total++;
+                }
 
-                /* Drain cold PQ entries that now fit in L0+L1 window */
+                /* Drain cold PQ entries that now fit in L0 window.
+                 * FIX: Only drain up to L0 window end, not L1 window end.
+                 * Draining beyond L0 range into L0 circular buckets causes
+                 * circular bucket collisions (same circular position, different
+                 * logical position), violating Dijkstra's extraction order.
+                 * Entries beyond L0 range stay in cold PQ (they'll be drained
+                 * into L1 during future L1 redistribution). */
                 const long long l0End_drain = (long long)(trueCursor + L0_BUCKETS) * bw;
-                const long long l1End_drain = (long long)(l1Cursor + L1_BUCKETS) * l1bw;
                 while (!coldPQ.empty())
                 {
                     auto [pd, pv] = coldPQ.top();
@@ -595,20 +608,12 @@ long OmbiQueue::sssp(const CsrGraph &g, int source)
                         continue;
                     }
                     long long pvDist = (vs[pv].distGen == curGen) ? vs[pv].dist : OMBI_VERY_FAR;
-                    if (pvDist >= l1End_drain) break;
+                    if (pvDist >= l0End_drain) break;
                     coldPQ.pop();
 
-                    if (pvDist < l0End_drain)
-                    {
-                        int pvBi = (int)((pvDist / bw) & L0_MASK);
-                        addToL0(pvBi, pv, pvDist);
-                        l0Total++;
-                    }
-                    else
-                    {
-                        int pvL1Bi = (int)((pvDist / l1bw) & L1_MASK);
-                        addToL1(pvL1Bi, pv, pvDist);
-                    }
+                    int pvBi = (int)((pvDist / bw) & L0_MASK);
+                    addToL0(pvBi, pv, pvDist);
+                    l0Total++;
                 }
             }
             break;
