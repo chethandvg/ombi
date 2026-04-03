@@ -254,14 +254,22 @@ void OmbiQueue::addToL1(int bi, int v, long long d)
 }
 
 /*
- * redistributeL1ToL0 — Pull all entries from L1 bucket l1Bi into L0 buckets.
- * Stale entries are discarded. Live entries are distributed into L0 based
- * on their distance. Updates trueCursor to the minimum found distance.
+ * redistributeL1ToL0 — Pull entries from L1 bucket l1Bi into L0 buckets.
+ *
+ * FIX: Only redistribute entries whose distance falls within the expected
+ * logical L1 range [trueL1Bi * l1bw, (trueL1Bi+1) * l1bw). Entries from
+ * other logical ranges (due to circular wrapping) are kept in the L1 bucket.
+ * This prevents out-of-order extraction that violates Dijkstra's invariant.
  */
-void OmbiQueue::redistributeL1ToL0(int l1Bi, long long bw, int trueCursor,
-                                    uint16_t curGen, int &l0Total)
+void OmbiQueue::redistributeL1ToL0(int l1Bi, long long bw, long long l1bw,
+                                    int trueL1Bi, uint16_t curGen, int &l0Total)
 {
     int cur = l1Head[l1Bi];
+    int keepHead = -1;
+    int keepCount = 0;
+
+    const long long rangeStart = (long long)trueL1Bi * l1bw;
+    const long long rangeEnd   = rangeStart + l1bw;
 
     while (cur >= 0)
     {
@@ -276,23 +284,44 @@ void OmbiQueue::redistributeL1ToL0(int l1Bi, long long bw, int trueCursor,
             continue;
         }
 
-        /* Redistribute to L0 */
         long long d = pool[cur].dist;
-        int bi = (int)((d / bw) & L0_MASK);
 
-        pool[cur].next = l0Head[bi];
-        l0Head[bi] = cur;
-        l0Count[bi]++;
-        l0Total++;
-        l0Bmp[bi >> 6] |= 1ULL << (bi & 63);
+        /* Only redistribute entries from the correct logical L1 range */
+        if (d >= rangeStart && d < rangeEnd)
+        {
+            /* Redistribute to L0 */
+            int bi = (int)((d / bw) & L0_MASK);
+
+            pool[cur].next = l0Head[bi];
+            l0Head[bi] = cur;
+            l0Count[bi]++;
+            l0Total++;
+            l0Bmp[bi >> 6] |= 1ULL << (bi & 63);
+        }
+        else
+        {
+            /* Keep in L1 — belongs to a different logical range */
+            pool[cur].next = keepHead;
+            keepHead = cur;
+            keepCount++;
+        }
 
         cur = next;
     }
 
-    /* Clear L1 bucket */
-    l1Head[l1Bi] = -1;
-    l1Count[l1Bi] = 0;
-    l1Bmp[l1Bi >> 6] &= ~(1ULL << (l1Bi & 63));
+    if (keepCount > 0)
+    {
+        l1Head[l1Bi] = keepHead;
+        l1Count[l1Bi] = keepCount;
+        /* Bitmap bit stays set — bucket still has entries */
+    }
+    else
+    {
+        /* Clear L1 bucket */
+        l1Head[l1Bi] = -1;
+        l1Count[l1Bi] = 0;
+        l1Bmp[l1Bi >> 6] &= ~(1ULL << (l1Bi & 63));
+    }
 }
 
 /* ----------------------------------------------------------------
@@ -303,6 +332,107 @@ static inline bool l1_any_nonempty(const uint64_t *bmp)
     for (int i = 0; i < OmbiQueue::L1_BMP_WORDS; i++)
         if (bmp[i]) return true;
     return false;
+}
+
+/* ----------------------------------------------------------------
+ * scanL1AndFillL0 — Scan L1 bitmap, redistribute entries to L0,
+ * and extract a live vertex.
+ *
+ * FIX: Loops over ALL non-empty L1 buckets (not just one). If a bucket
+ * produces only stale entries after redistribution, continues to the next.
+ * Returns true if a live vertex was found.
+ * ---------------------------------------------------------------- */
+bool OmbiQueue::scanL1AndFillL0(int &trueCursor, int &l1Cursor,
+                                long long bw, long long l1bw,
+                                uint16_t curGen, int &l0Total,
+                                int &outU, long long &outDu,
+                                int &lastBucketCirc)
+{
+    outU = -1;
+    outDu = OMBI_VERY_FAR;
+
+    int startCirc = l1Cursor & L1_MASK;
+    int startWord = startCirc >> 6;
+    int startBit  = startCirc & 63;
+    int bitsRem   = L1_BUCKETS;
+    int wordIdx   = startWord;
+    int bitOff    = startBit;
+    int trueOff   = 0;
+
+    while (bitsRem > 0)
+    {
+        uint64_t word = l1Bmp[wordIdx];
+        if (bitOff > 0)
+            word &= ~((1ULL << bitOff) - 1);
+
+        while (word != 0)
+        {
+            int bit = __builtin_ctzll(word);
+            int circBi = (wordIdx << 6) | bit;
+            int trueL1Bi = l1Cursor + trueOff + (bit - bitOff);
+
+            if (trueL1Bi >= l1Cursor + L1_BUCKETS)
+                return false;   /* scanned all 256 positions */
+
+            /* Set trueCursor to start of this L1 bucket's L0 range */
+            trueCursor = trueL1Bi * L0_BUCKETS;
+            lastBucketCirc = -1;
+
+            /* Redistribute (with distance range check) */
+            redistributeL1ToL0(circBi, bw, l1bw, trueL1Bi, curGen, l0Total);
+
+            if (l0Total > 0)
+            {
+                int foundL0 = scanL0BitmapFirstLive(trueCursor, curGen,
+                                                     l0Total, outU, outDu,
+                                                     lastBucketCirc);
+                if (foundL0 >= 0)
+                {
+                    trueCursor = foundL0;
+                    l1Cursor = trueL1Bi + 1;
+                    return true;
+                }
+            }
+
+            /* All entries were stale — continue to next L1 bit */
+            word &= word - 1;
+        }
+
+        bitsRem -= (64 - bitOff);
+        trueOff += (64 - bitOff);
+        bitOff = 0;
+        wordIdx = (wordIdx + 1) & (L1_BMP_WORDS - 1);
+    }
+
+    return false;   /* L1 exhausted */
+}
+
+/* ----------------------------------------------------------------
+ * insertThreeWay — Route a vertex to L0, L1, or cold PQ based on
+ * its distance relative to the current window boundaries.
+ * ---------------------------------------------------------------- */
+void OmbiQueue::insertThreeWay(int v, long long d, long long bw,
+                               long long l1bw, int trueCursor,
+                               int l1Cursor, int &l0Total)
+{
+    const long long l0End = (long long)(trueCursor + L0_BUCKETS) * bw;
+    const long long l1End = (long long)(l1Cursor + L1_BUCKETS) * l1bw;
+
+    if (d < l0End)
+    {
+        int bi = (int)((d / bw) & L0_MASK);
+        addToL0(bi, v, d);
+        l0Total++;
+    }
+    else if (d < l1End)
+    {
+        int l1bi = (int)((d / l1bw) & L1_MASK);
+        addToL1(l1bi, v, d);
+    }
+    else
+    {
+        coldPQ.push({d, v});
+    }
 }
 
 /* ----------------------------------------------------------------
@@ -411,124 +541,77 @@ long OmbiQueue::sssp(const CsrGraph &g, int source)
             }
         }
 
-        /* --- Step 2: If L0 empty, try redistributing from L1 --- */
-        if (u < 0)
+        /* --- Step 2: If L0 empty, try L1 (loops over stale buckets) --- */
+        if (u < 0 && l1_any_nonempty(l1Bmp))
         {
-            /* Scan L1 bitmap for first non-empty coarse bucket */
-            int l1StartCirc = l1Cursor & L1_MASK;
-            int l1StartWord = l1StartCirc >> 6;
-            int l1StartBit  = l1StartCirc & 63;
-            int l1BitsRem   = L1_BUCKETS;
-            int l1WordIdx   = l1StartWord;
-            int l1BitOffset = l1StartBit;
-            int l1TrueOff   = 0;
-            bool found_l1   = false;
+            scanL1AndFillL0(trueCursor, l1Cursor, bw, l1bw,
+                            curGen, l0Total, u, du, lastBucketCirc);
+        }
 
-            while (l1BitsRem > 0)
+        /* --- Step 3: Compare with cold PQ (ALWAYS, like v1) ---
+         * This fixes the bug where cold PQ has a smaller distance
+         * than the L1 result but was never checked. */
+        while (!coldPQ.empty())
+        {
+            auto [cd, cv] = coldPQ.top();
+
+            /* Skip stale cold entries */
+            if (vs[cv].settledGen == curGen ||
+                cd > (vs[cv].distGen == curGen ? vs[cv].dist : OMBI_VERY_FAR))
             {
-                uint64_t word = l1Bmp[l1WordIdx];
-                if (l1BitOffset > 0)
-                    word &= ~((1ULL << l1BitOffset) - 1);
-
-                if (word != 0)
-                {
-                    int bit = __builtin_ctzll(word);
-                    int circBi = (l1WordIdx << 6) | bit;
-                    int trueL1Bi = l1Cursor + l1TrueOff + (bit - l1BitOffset);
-
-                    /* Update trueCursor to the start of this L1 bucket's L0 range */
-                    trueCursor = trueL1Bi * L0_BUCKETS;
-                    l1Cursor = trueL1Bi;
-                    lastBucketCirc = -1;
-
-                    /* Redistribute L1 bucket into L0 */
-                    redistributeL1ToL0(circBi, bw, trueCursor, curGen, l0Total);
-
-                    if (l0Total > 0)
-                    {
-                        /* Now extract from L0 */
-                        int foundL0 = scanL0BitmapFirstLive(trueCursor, curGen,
-                                                             l0Total, u, du, lastBucketCirc);
-                        if (foundL0 >= 0)
-                            trueCursor = foundL0;
-                    }
-
-                    found_l1 = true;
-                    break;
-                }
-
-                l1BitsRem -= (64 - l1BitOffset);
-                l1TrueOff += (64 - l1BitOffset);
-                l1BitOffset = 0;
-                l1WordIdx = (l1WordIdx + 1) & (L1_BMP_WORDS - 1);
+                coldPQ.pop();
+                continue;
             }
 
-            /* --- Step 3: If L1 also empty, try cold PQ --- */
-            if (!found_l1 || u < 0)
+            long long coldDist = (vs[cv].distGen == curGen) ? vs[cv].dist : OMBI_VERY_FAR;
+
+            if (u < 0 || coldDist < du)
             {
+                /* Cold vertex wins — save old vertex for push-back */
+                int oldU = u;
+                long long oldDu = du;
+
+                u = cv;
+                du = coldDist;
+                coldPQ.pop();
+                trueCursor = (int)(du / bw);
+                l1Cursor = (int)(du / l1bw);
+                lastBucketCirc = -1;
+
+                /* Push old vertex back using three-way insert */
+                if (oldU >= 0)
+                    insertThreeWay(oldU, oldDu, bw, l1bw, trueCursor, l1Cursor, l0Total);
+
+                /* Drain cold PQ entries that now fit in L0+L1 window */
+                const long long l0End_drain = (long long)(trueCursor + L0_BUCKETS) * bw;
+                const long long l1End_drain = (long long)(l1Cursor + L1_BUCKETS) * l1bw;
                 while (!coldPQ.empty())
                 {
-                    auto [cd, cv] = coldPQ.top();
-
-                    /* Skip stale */
-                    if (vs[cv].settledGen == curGen ||
-                        cd > (vs[cv].distGen == curGen ? vs[cv].dist : OMBI_VERY_FAR))
+                    auto [pd, pv] = coldPQ.top();
+                    if (vs[pv].settledGen == curGen ||
+                        pd > (vs[pv].distGen == curGen ? vs[pv].dist : OMBI_VERY_FAR))
                     {
                         coldPQ.pop();
                         continue;
                     }
+                    long long pvDist = (vs[pv].distGen == curGen) ? vs[pv].dist : OMBI_VERY_FAR;
+                    if (pvDist >= l1End_drain) break;
+                    coldPQ.pop();
 
-                    long long coldDist = (vs[cv].distGen == curGen) ? vs[cv].dist : OMBI_VERY_FAR;
-
-                    if (u < 0 || coldDist < du)
+                    if (pvDist < l0End_drain)
                     {
-                        /* Cold vertex wins — push hot back if we had one */
-                        if (u >= 0)
-                        {
-                            int pc = (int)((du / bw) & L0_MASK);
-                            addToL0(pc, u, du);
-                            l0Total++;
-                        }
-                        u = cv;
-                        du = coldDist;
-                        coldPQ.pop();
-                        trueCursor = (int)(du / bw);
-                        l1Cursor = trueCursor / L0_BUCKETS;
-                        lastBucketCirc = -1;
-
-                        /* Drain cold PQ entries that now fit in L0+L1 window */
-                        long long l1End = (long long)(l1Cursor + L1_BUCKETS) * l1bw;
-                        while (!coldPQ.empty())
-                        {
-                            auto [pd, pv] = coldPQ.top();
-                            if (vs[pv].settledGen == curGen ||
-                                pd > (vs[pv].distGen == curGen ? vs[pv].dist : OMBI_VERY_FAR))
-                            {
-                                coldPQ.pop();
-                                continue;
-                            }
-                            long long pvDist = (vs[pv].distGen == curGen) ? vs[pv].dist : OMBI_VERY_FAR;
-                            if (pvDist >= l1End) break;
-                            coldPQ.pop();
-
-                            /* Decide L0 or L1 */
-                            long long l0End = (long long)(trueCursor + L0_BUCKETS) * bw;
-                            if (pvDist < l0End)
-                            {
-                                int pvBi = (int)((pvDist / bw) & L0_MASK);
-                                addToL0(pvBi, pv, pvDist);
-                                l0Total++;
-                            }
-                            else
-                            {
-                                int pvL1Bi = (int)((pvDist / l1bw) & L1_MASK);
-                                addToL1(pvL1Bi, pv, pvDist);
-                            }
-                        }
+                        int pvBi = (int)((pvDist / bw) & L0_MASK);
+                        addToL0(pvBi, pv, pvDist);
+                        l0Total++;
                     }
-                    break;
+                    else
+                    {
+                        int pvL1Bi = (int)((pvDist / l1bw) & L1_MASK);
+                        addToL1(pvL1Bi, pv, pvDist);
+                    }
                 }
             }
+            break;
         }
 
         if (OMBI_UNLIKELY(u < 0)) break;

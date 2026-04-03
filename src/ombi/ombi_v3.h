@@ -156,8 +156,16 @@ private:
     inline __attribute__((always_inline))
     void addToL1(int bi, int v, long long d);
 
-    void redistributeL1ToL0(int l1Bi, long long bw, int trueCursor,
-                            uint16_t curGen, int &l0Count_total);
+    void redistributeL1ToL0(int l1Bi, long long bw, long long l1bw,
+                            int trueL1Bi, uint16_t curGen, int &l0Count_total);
+
+    bool scanL1AndFillL0(int &trueCursor, int &l1Cursor, long long bw,
+                         long long l1bw, uint16_t curGen, int &l0Total,
+                         int &outU, long long &outDu, int &lastBucketCirc);
+
+    /* Three-way insert: route to L0, L1, or cold PQ based on distance */
+    void insertThreeWay(int v, long long d, long long bw, long long l1bw,
+                        int trueCursor, int l1Cursor, int &l0Total);
 
     /* Generation overflow reset */
     void resetGenerations();
