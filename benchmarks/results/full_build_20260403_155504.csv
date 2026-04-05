@@ -1,0 +1,14 @@
+target,compile_time_sec,binary_size_bytes
+ombi,1.493,26528
+ombi_opt,1.537,30624
+ombi_v2,1.550,30696
+ombi_v3,1.616,31032
+dij_bh,1.118,21872
+dij_4h,0.923,21560
+dij_fh,1.067,21584
+dij_ph,0.900,21552
+dij_dial,1.054,21952
+dij_r1,1.077,21968
+dij_r2,1.200,26192
+dij_ch,1.784,48952
+sq,1.431,27016

@@ -1,0 +1,1801 @@
+chethandvg@LAPTOP-IVNV7JPF:~$ cd /mnt/d/Projects/Practice/Research/ombi
+make sweep-bw && make sweep-hot && make sweep-bw-v3 && make sweep-hot-v3
+Building ombi_bw1...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_bw2...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_bw3...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_bw4...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_bw6...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_bw8...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+BW_MULT sweep complete: ombi_bw{1,2,3,4,6,8}
+Building ombi_hot10 (HOT_BUCKETS=1024)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot11 (HOT_BUCKETS=2048)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot12 (HOT_BUCKETS=4096)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot13 (HOT_BUCKETS=8192)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot14 (HOT_BUCKETS=16384)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot15 (HOT_BUCKETS=32768)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot16 (HOT_BUCKETS=65536)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot17 (HOT_BUCKETS=131072)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_hot18 (HOT_BUCKETS=262144)...
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/main.cc:36:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi.h:28,
+                 from src/ombi/ombi.cc:8:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+HOT_BUCKETS sweep complete: ombi_hot{10..18}
+Building ombi_v3_bw1...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_bw2...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_bw3...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_bw4...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_bw6...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_bw8...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+BW_MULT v3 sweep complete: ombi_v3_bw{1,2,3,4,6,8}
+Building ombi_v3_hot10 (HOT_BUCKETS=1024)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot11 (HOT_BUCKETS=2048)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot12 (HOT_BUCKETS=4096)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot13 (HOT_BUCKETS=8192)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot14 (HOT_BUCKETS=16384)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot15 (HOT_BUCKETS=32768)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot16 (HOT_BUCKETS=65536)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot17 (HOT_BUCKETS=131072)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+Building ombi_v3_hot18 (HOT_BUCKETS=262144)...
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/main.cc:30:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+In file included from src/ombi/ombi_v3.h:34,
+                 from src/ombi/ombi_v3.cc:14:
+src/ombi/../infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/ombi/../infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int)’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+In file included from src/infrastructure/parser_gr.cc:13:
+src/infrastructure/nodearc.h:27:1: warning: ‘typedef’ was ignored in this declaration
+   27 | typedef struct Node;
+      | ^~~~~~~
+src/infrastructure/nodearc.h:98:13: warning: ‘void freeCsr(CsrGraph&)’ defined but not used [-Wunused-function]
+   98 | static void freeCsr(CsrGraph &g) {
+      |             ^~~~~~~
+src/infrastructure/nodearc.h:70:17: warning: ‘CsrGraph buildCsr(long int, Node*, long int, long long int, long long int’ defined but not used [-Wunused-function]
+   70 | static CsrGraph buildCsr(long n, Node *nodes, long m,
+      |                 ^~~~~~~~
+HOT_BUCKETS v3 sweep complete: ombi_v3_hot{10..18}
+chethandvg@LAPTOP-IVNV7JPF:/mnt/d/Projects/Practice/Research/ombi$ ./benchmarks/scripts/run_full_benchmark.sh 2>&1 | tee benchmarks/results/full_remaining_$(date +%Y%m%d_%H%M%S).log
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  OMBI — Comprehensive Fair Benchmark Suite v2                              ║
+║  Road + Grid · Stats · Memory · Variants · Sweeps · CH · Scalability       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Project root:   /mnt/d/Projects/Practice/Research/ombi
+  Data dir:       /mnt/d/Projects/Practice/Research/ombi/data
+  Runs:           11 total → drop min/max → 9 effective
+  Warmup:         1 untimed run(s)
+  Confidence:     95% CI (t-distribution, df=8, t=2.306)
+  Date:           2026-04-05 14:05:52
+
+--- Checking binaries ---
+  ✅ Core binaries found
+  ✅ BW_MULT sweep binaries: 6/6
+  ✅ HOT_BUCKETS sweep binaries: 9/9
+  ✅ BW_MULT v3 sweep binaries: 6/6
+  ✅ HOT_BUCKETS v3 sweep binaries: 9/9
+  ✅ Data directory found
+  ✅ GNU time available (memory measurement enabled)
+
+--- Checking grid graphs ---
+  ✅ grid_100x100_w100
+  ✅ grid_100x100_w100000
+  ✅ grid_316x316_w100
+  ✅ grid_316x316_w100000
+  ✅ grid_1000x1000_w100
+  ✅ grid_1000x1000_w100000
+  ✅ grid_3162x3162_w100
+  ✅ grid_3162x3162_w100000
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 3: OMBI Variant Comparison (base vs opt vs v2 vs v3)              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ VARIANTS: BAY ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     31.915 │   31.972 │   0.1679 │  ±0.129 │ 321270.000000 │ 346470.170000 │      57148 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │     31.107 │   31.120 │   0.1661 │  ±0.128 │ 321270.000000 │ 346470.170000 │      56992 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │     33.491 │   33.519 │   0.1102 │  ±0.085 │ 321270.000000 │ 347100.140000 │      59124 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     29.972 │   29.957 │   0.1221 │  ±0.094 │ 321270.000000 │ 346470.170000 │      60420 │      N/A │ ❌
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ VARIANTS: COL ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     46.571 │   46.694 │   0.5138 │  ±0.395 │ 435666.000000 │ 464674.190000 │      73076 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │     44.792 │   44.696 │   0.2353 │  ±0.181 │ 435666.000000 │ 464674.190000 │      72940 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │     48.257 │   48.614 │   1.0324 │  ±0.794 │ 435666.000000 │ 465347.700000 │      76268 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     43.909 │   43.941 │   0.2460 │  ±0.189 │ 435666.000000 │ 464674.190000 │      79932 │      N/A │ ❌
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ VARIANTS: FLA ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    125.797 │  128.336 │   5.1332 │  ±3.946 │ 1070376.000000 │ 1164100.560000 │     173048 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │    118.293 │  118.377 │   0.2930 │  ±0.225 │ 1070376.000000 │ 1164100.560000 │     172716 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │    125.840 │  128.639 │   5.8425 │  ±4.491 │ 1070376.000000 │ 1167881.770000 │     181020 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    114.024 │  113.995 │   1.2205 │  ±0.938 │ 1070376.000000 │ 1164100.560000 │     194560 │      N/A │ ❌

@@ -1,0 +1,1695 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  OMBI — Comprehensive Fair Benchmark Suite v2                              ║
+║  Road + Grid · Stats · Memory · Variants · Sweeps · CH · Scalability       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Project root:   /mnt/d/Projects/Practice/Research/ombi
+  Data dir:       /mnt/d/Projects/Practice/Research/ombi/data
+  Runs:           11 total → drop min/max → 9 effective
+  Warmup:         1 untimed run(s)
+  Confidence:     95% CI (t-distribution, df=8, t=2.306)
+  Date:           2026-04-05 14:05:52
+
+--- Checking binaries ---
+  ✅ Core binaries found
+  ✅ BW_MULT sweep binaries: 6/6
+  ✅ HOT_BUCKETS sweep binaries: 9/9
+  ✅ BW_MULT v3 sweep binaries: 6/6
+  ✅ HOT_BUCKETS v3 sweep binaries: 9/9
+  ✅ Data directory found
+  ✅ GNU time available (memory measurement enabled)
+
+--- Checking grid graphs ---
+  ✅ grid_100x100_w100
+  ✅ grid_100x100_w100000
+  ✅ grid_316x316_w100
+  ✅ grid_316x316_w100000
+  ✅ grid_1000x1000_w100
+  ✅ grid_1000x1000_w100000
+  ✅ grid_3162x3162_w100
+  ✅ grid_3162x3162_w100000
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 3: OMBI Variant Comparison (base vs opt vs v2 vs v3)              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ VARIANTS: BAY ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     31.915 │   31.972 │   0.1679 │  ±0.129 │ 321270.000000 │ 346470.170000 │      57148 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │     31.107 │   31.120 │   0.1661 │  ±0.128 │ 321270.000000 │ 346470.170000 │      56992 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │     33.491 │   33.519 │   0.1102 │  ±0.085 │ 321270.000000 │ 347100.140000 │      59124 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     29.972 │   29.957 │   0.1221 │  ±0.094 │ 321270.000000 │ 346470.170000 │      60420 │      N/A │ ❌
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ VARIANTS: COL ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     46.571 │   46.694 │   0.5138 │  ±0.395 │ 435666.000000 │ 464674.190000 │      73076 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │     44.792 │   44.696 │   0.2353 │  ±0.181 │ 435666.000000 │ 464674.190000 │      72940 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │     48.257 │   48.614 │   1.0324 │  ±0.794 │ 435666.000000 │ 465347.700000 │      76268 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     43.909 │   43.941 │   0.2460 │  ±0.189 │ 435666.000000 │ 464674.190000 │      79932 │      N/A │ ❌
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ VARIANTS: FLA ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    125.797 │  128.336 │   5.1332 │  ±3.946 │ 1070376.000000 │ 1164100.560000 │     173048 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │    118.293 │  118.377 │   0.2930 │  ±0.225 │ 1070376.000000 │ 1164100.560000 │     172716 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │    125.840 │  128.639 │   5.8425 │  ±4.491 │ 1070376.000000 │ 1167881.770000 │     181020 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    114.024 │  113.995 │   1.2205 │  ±0.938 │ 1070376.000000 │ 1164100.560000 │     194560 │      N/A │ ❌
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ VARIANTS: NE ────────────────────────────────────────────────────────
+│  Variant      │ Median(ms) │     Mean │   StdDev │           95% CI │      Scans │    Updates │  vs base
+│  ─────────────┼────────────┼──────────┼──────────┼──────────────────┼────────────┼────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    198.025 │  200.000 │   4.7776 │  ±3.672 │ 1524453.000000 │ 1659524.640000 │     247016 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_opt   │    179.299 │  180.529 │   3.4507 │  ±2.652 │ 1524453.000000 │ 1659524.640000 │     246940 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v2    │    198.282 │  198.213 │   4.3945 │  ±3.378 │ 1524453.000000 │ 1662615.540000 │     258516 │      N/A │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    170.513 │  171.343 │   1.7427 │  ±1.340 │ 1524453.000000 │ 1659524.640000 │     276732 │      N/A │ ❌
+└──────────────────────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 4: BW_MULT Sensitivity Sweep (bw = {1,2,3,4,6,8} × minArcLen)    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ BW SWEEP: BAY ──────────────────────────────────────────────────────
+│  BW_MULT  │ Median(ms) │     Mean │   StdDev │           95% CI │  vs bw=4
+│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw1        │     34.739 │   34.934 │   0.3702 │  ±0.285 │ 321270.000000 │ 346469.790000 │      55392 │      N/A │ ❌
+│  1        │     34.739 │   34.934 │   0.3702 │  [34.650,35.219] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw2        │     34.624 │   34.856 │   0.5935 │  ±0.456 │ 321270.000000 │ 346470.780000 │      56140 │      N/A │ ❌
+│  2        │     34.624 │   34.856 │   0.5935 │  [34.400,35.312] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw3        │     33.566 │   33.614 │   0.1122 │  ±0.086 │ 321270.000000 │ 346469.340000 │      56400 │      N/A │ ❌
+│  3        │     33.566 │   33.614 │   0.1122 │  [33.528,33.700] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw4        │     32.945 │   32.966 │   0.1378 │  ±0.106 │ 321270.000000 │ 346470.170000 │      57280 │      N/A │ ❌
+│  4        │     32.945 │   32.966 │   0.1378 │  [32.860,33.072] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw6        │     32.205 │   32.235 │   0.0935 │  ±0.072 │ 321270.000000 │ 346471.170000 │      58316 │      N/A │ ❌
+│  6        │     32.205 │   32.235 │   0.0935 │  [32.164,32.307] │    0.978
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw8        │     31.487 │   31.458 │   0.1368 │  ±0.105 │ 321270.000000 │ 346473.010000 │      58420 │      N/A │ ❌
+│  8        │     31.487 │   31.458 │   0.1368 │  [31.353,31.563] │    0.956
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ BW SWEEP: COL ──────────────────────────────────────────────────────
+│  BW_MULT  │ Median(ms) │     Mean │   StdDev │           95% CI │  vs bw=4
+│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw1        │     50.514 │   50.511 │   0.3012 │  ±0.232 │ 435666.000000 │ 464675.880000 │      71920 │      N/A │ ❌
+│  1        │     50.514 │   50.511 │   0.3012 │  [50.279,50.742] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw2        │     48.578 │   49.289 │   1.3950 │  ±1.072 │ 435666.000000 │ 464675.580000 │      72764 │      N/A │ ❌
+│  2        │     48.578 │   49.289 │   1.3950 │  [48.217,50.361] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw3        │     47.610 │   47.621 │   0.2259 │  ±0.174 │ 435666.000000 │ 464674.150000 │      72732 │      N/A │ ❌
+│  3        │     47.610 │   47.621 │   0.2259 │  [47.447,47.795] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw4        │     47.063 │   47.369 │   0.6397 │  ±0.492 │ 435666.000000 │ 464674.190000 │      73056 │      N/A │ ❌
+│  4        │     47.063 │   47.369 │   0.6397 │  [46.877,47.860] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw6        │     46.424 │   46.404 │   0.5518 │  ±0.424 │ 435666.000000 │ 464674.690000 │      74432 │      N/A │ ❌
+│  6        │     46.424 │   46.404 │   0.5518 │  [45.980,46.828] │    0.986
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw8        │     45.330 │   45.317 │   0.2714 │  ±0.209 │ 435666.000000 │ 464676.180000 │      75016 │      N/A │ ❌
+│  8        │     45.330 │   45.317 │   0.2714 │  [45.109,45.526] │    0.963
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ BW SWEEP: FLA ──────────────────────────────────────────────────────
+│  BW_MULT  │ Median(ms) │     Mean │   StdDev │           95% CI │  vs bw=4
+│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw1        │    132.421 │  132.426 │   0.4479 │  ±0.344 │ 1070376.000000 │ 1164092.870000 │     171952 │      N/A │ ❌
+│  1        │    132.421 │  132.426 │   0.4479 │ [132.082,132.770] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw2        │    129.640 │  129.565 │   1.0297 │  ±0.791 │ 1070376.000000 │ 1164095.100000 │     172660 │      N/A │ ❌
+│  2        │    129.640 │  129.565 │   1.0297 │ [128.774,130.357] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw3        │    125.433 │  125.527 │   0.3254 │  ±0.250 │ 1070376.000000 │ 1164098.630000 │     172800 │      N/A │ ❌
+│  3        │    125.433 │  125.527 │   0.3254 │ [125.277,125.777] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw4        │    123.782 │  123.905 │   0.5142 │  ±0.395 │ 1070376.000000 │ 1164100.560000 │     173012 │      N/A │ ❌
+│  4        │    123.782 │  123.905 │   0.5142 │ [123.510,124.300] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw6        │    121.236 │  121.227 │   0.6394 │  ±0.492 │ 1070376.000000 │ 1164100.820000 │     174196 │      N/A │ ❌
+│  6        │    121.236 │  121.227 │   0.6394 │ [120.735,121.718] │    0.979
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  bw8        │    118.282 │  118.623 │   0.8228 │  ±0.632 │ 1070376.000000 │ 1164100.550000 │     174920 │      N/A │ ❌
+│  8        │    118.282 │  118.623 │   0.8228 │ [117.991,119.256] │    0.956
+└──────────────────────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 5: HOT_BUCKETS Size Sweep (2^10 .. 2^18)                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ HOT SWEEP: BAY ─────────────────────────────────────────────────────
+│  2^exp  │    Buckets │ Median(ms) │     Mean │   StdDev │           95% CI │  vs 2^14
+│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot10      │     32.476 │   32.608 │   0.3277 │  ±0.252 │ 321270.000000 │ 346470.340000 │      53572 │      N/A │ ❌
+│  2^10   │       1024 │     32.476 │   32.608 │   0.3277 │  [32.356,32.860] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot11      │     32.114 │   32.109 │   0.3030 │  ±0.233 │ 321270.000000 │ 346470.720000 │      53840 │      N/A │ ❌
+│  2^11   │       2048 │     32.114 │   32.109 │   0.3030 │  [31.876,32.341] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot12      │     31.584 │   31.643 │   0.1370 │  ±0.105 │ 321270.000000 │ 346470.170000 │      54352 │      N/A │ ❌
+│  2^12   │       4096 │     31.584 │   31.643 │   0.1370 │  [31.538,31.749] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot13      │     32.024 │   31.984 │   0.2259 │  ±0.174 │ 321270.000000 │ 346470.170000 │      55412 │      N/A │ ❌
+│  2^13   │       8192 │     32.024 │   31.984 │   0.2259 │  [31.811,32.158] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot14      │     32.520 │   32.516 │   0.0859 │  ±0.066 │ 321270.000000 │ 346470.170000 │      56904 │      N/A │ ❌
+│  2^14   │      16384 │     32.520 │   32.516 │   0.0859 │  [32.450,32.582] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot15      │     34.204 │   34.221 │   0.1044 │  ±0.080 │ 321270.000000 │ 346470.170000 │      60180 │      N/A │ ❌
+│  2^15   │      32768 │     34.204 │   34.221 │   0.1044 │  [34.141,34.302] │    1.052
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot16      │     38.039 │   38.357 │   0.8039 │  ±0.618 │ 321270.000000 │ 346470.170000 │      65784 │      N/A │ ❌
+│  2^16   │      65536 │     38.039 │   38.357 │   0.8039 │  [37.739,38.975] │    1.170
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot17      │     40.544 │   40.549 │   0.0987 │  ±0.076 │ 321270.000000 │ 346470.170000 │      76824 │      N/A │ ❌
+│  2^17   │     131072 │     40.544 │   40.549 │   0.0987 │  [40.473,40.625] │    1.247
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot18      │     40.954 │   40.949 │   0.1849 │  ±0.142 │ 321270.000000 │ 346470.170000 │      97740 │      N/A │ ❌
+│  2^18   │     262144 │     40.954 │   40.949 │   0.1849 │  [40.807,41.091] │    1.259
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ HOT SWEEP: COL ─────────────────────────────────────────────────────
+│  2^exp  │    Buckets │ Median(ms) │     Mean │   StdDev │           95% CI │  vs 2^14
+│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot10      │     51.997 │   51.999 │   0.3472 │  ±0.267 │ 435666.000000 │ 464673.920000 │      70376 │      N/A │ ❌
+│  2^10   │       1024 │     51.997 │   51.999 │   0.3472 │  [51.732,52.266] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot11      │     48.028 │   48.228 │   0.3436 │  ±0.264 │ 435666.000000 │ 464674.480000 │      70304 │      N/A │ ❌
+│  2^11   │       2048 │     48.028 │   48.228 │   0.3436 │  [47.964,48.492] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot12      │     46.676 │   46.980 │   0.5318 │  ±0.409 │ 435666.000000 │ 464674.030000 │      70984 │      N/A │ ❌
+│  2^12   │       4096 │     46.676 │   46.980 │   0.5318 │  [46.571,47.389] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot13      │     46.197 │   46.211 │   0.3715 │  ±0.286 │ 435666.000000 │ 464674.190000 │      71704 │      N/A │ ❌
+│  2^13   │       8192 │     46.197 │   46.211 │   0.3715 │  [45.925,46.496] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot14      │     47.175 │   47.205 │   0.3059 │  ±0.235 │ 435666.000000 │ 464674.190000 │      73120 │      N/A │ ❌
+│  2^14   │      16384 │     47.175 │   47.205 │   0.3059 │  [46.970,47.440] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot15      │     49.600 │   49.544 │   0.2703 │  ±0.208 │ 435666.000000 │ 464674.190000 │      76012 │      N/A │ ❌
+│  2^15   │      32768 │     49.600 │   49.544 │   0.2703 │  [49.337,49.752] │    1.051
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot16      │     54.308 │   54.245 │   0.2322 │  ±0.178 │ 435666.000000 │ 464674.190000 │      81416 │      N/A │ ❌
+│  2^16   │      65536 │     54.308 │   54.245 │   0.2322 │  [54.067,54.424] │    1.151
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot17      │     58.672 │   58.829 │   0.3476 │  ±0.267 │ 435666.000000 │ 464674.190000 │      91948 │      N/A │ ❌
+│  2^17   │     131072 │     58.672 │   58.829 │   0.3476 │  [58.562,59.096] │    1.244
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot18      │     61.614 │   61.647 │   0.1391 │  ±0.107 │ 435666.000000 │ 464674.190000 │     109988 │      N/A │ ❌
+│  2^18   │     262144 │     61.614 │   61.647 │   0.1391 │  [61.540,61.754] │    1.306
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ HOT SWEEP: FLA ─────────────────────────────────────────────────────
+│  2^exp  │    Buckets │ Median(ms) │     Mean │   StdDev │           95% CI │  vs 2^14
+│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot10      │    144.526 │  144.983 │   1.5503 │  ±1.192 │ 1070376.000000 │ 1164094.010000 │     170132 │      N/A │ ❌
+│  2^10   │       1024 │    144.526 │  144.983 │   1.5503 │ [143.791,146.175] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot11      │    127.524 │  127.917 │   1.2457 │  ±0.958 │ 1070376.000000 │ 1164099.350000 │     170416 │      N/A │ ❌
+│  2^11   │       2048 │    127.524 │  127.917 │   1.2457 │ [126.959,128.874] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot12      │    121.666 │  121.975 │   0.8913 │  ±0.685 │ 1070376.000000 │ 1164101.300000 │     170768 │      N/A │ ❌
+│  2^12   │       4096 │    121.666 │  121.975 │   0.8913 │ [121.290,122.660] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot13      │    122.973 │  123.292 │   1.1723 │  ±0.901 │ 1070376.000000 │ 1164100.660000 │     171564 │      N/A │ ❌
+│  2^13   │       8192 │    122.973 │  123.292 │   1.1723 │ [122.391,124.194] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot14      │    123.991 │  123.988 │   0.5972 │  ±0.459 │ 1070376.000000 │ 1164100.560000 │     173048 │      N/A │ ❌
+│  2^14   │      16384 │    123.991 │  123.988 │   0.5972 │ [123.529,124.447] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot15      │    128.923 │  129.152 │   1.3914 │  ±1.070 │ 1070376.000000 │ 1164100.560000 │     175848 │      N/A │ ❌
+│  2^15   │      32768 │    128.923 │  129.152 │   1.3914 │ [128.082,130.221] │    1.040
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot16      │    143.174 │  143.227 │   0.5219 │  ±0.401 │ 1070376.000000 │ 1164100.560000 │     181444 │      N/A │ ❌
+│  2^16   │      65536 │    143.174 │  143.227 │   0.5219 │ [142.826,143.628] │    1.155
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot17      │    155.579 │  155.752 │   0.6243 │  ±0.480 │ 1070376.000000 │ 1164100.560000 │     192560 │      N/A │ ❌
+│  2^17   │     131072 │    155.579 │  155.752 │   0.6243 │ [155.272,156.232] │    1.255
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  hot18      │    161.419 │  161.430 │   0.6342 │  ±0.487 │ 1070376.000000 │ 1164100.560000 │     213284 │      N/A │ ❌
+│  2^18   │     262144 │    161.419 │  161.430 │   0.6342 │ [160.943,161.918] │    1.302
+└──────────────────────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 4b: BW_MULT Sensitivity Sweep — OMBI v3 (bw = {1..8} × minArc)   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ BW v3 SWEEP: BAY ───────────────────────────────────────────────────
+│  BW_MULT  │ Median(ms) │     Mean │   StdDev │           95% CI │  vs bw=4
+│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw1     │     31.173 │   31.199 │   0.1387 │  ±0.107 │ 321270.000000 │ 346469.790000 │      60420 │      N/A │ ❌
+│  1        │     31.173 │   31.199 │   0.1387 │  [31.093,31.306] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw2     │     30.640 │   30.689 │   0.1133 │  ±0.087 │ 321270.000000 │ 346470.780000 │      60408 │      N/A │ ❌
+│  2        │     30.640 │   30.689 │   0.1133 │  [30.602,30.776] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw3     │     30.486 │   30.609 │   0.1927 │  ±0.148 │ 321270.000000 │ 346469.340000 │      60396 │      N/A │ ❌
+│  3        │     30.486 │   30.609 │   0.1927 │  [30.461,30.757] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw4     │     30.100 │   30.146 │   0.1184 │  ±0.091 │ 321270.000000 │ 346470.170000 │      60492 │      N/A │ ❌
+│  4        │     30.100 │   30.146 │   0.1184 │  [30.055,30.237] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw6     │     29.509 │   29.582 │   0.2247 │  ±0.173 │ 321270.000000 │ 346471.170000 │      60372 │      N/A │ ❌
+│  6        │     29.509 │   29.582 │   0.2247 │  [29.409,29.755] │    0.980
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw8     │     28.895 │   28.936 │   0.1941 │  ±0.149 │ 321270.000000 │ 346473.010000 │      60380 │      N/A │ ❌
+│  8        │     28.895 │   28.936 │   0.1941 │  [28.787,29.085] │    0.960
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ BW v3 SWEEP: COL ───────────────────────────────────────────────────
+│  BW_MULT  │ Median(ms) │     Mean │   StdDev │           95% CI │  vs bw=4
+│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw1     │     44.647 │   44.726 │   0.2157 │  ±0.166 │ 435666.000000 │ 464675.880000 │      79988 │      N/A │ ❌
+│  1        │     44.647 │   44.726 │   0.2157 │  [44.560,44.892] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw2     │     42.987 │   42.974 │   0.1333 │  ±0.102 │ 435666.000000 │ 464675.580000 │      79868 │      N/A │ ❌
+│  2        │     42.987 │   42.974 │   0.1333 │  [42.872,43.076] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw3     │     42.818 │   42.762 │   0.1167 │  ±0.090 │ 435666.000000 │ 464674.150000 │      80104 │      N/A │ ❌
+│  3        │     42.818 │   42.762 │   0.1167 │  [42.673,42.852] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw4     │     42.796 │   42.892 │   0.3671 │  ±0.282 │ 435666.000000 │ 464674.190000 │      80068 │      N/A │ ❌
+│  4        │     42.796 │   42.892 │   0.3671 │  [42.610,43.174] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw6     │     42.787 │   42.870 │   0.4866 │  ±0.374 │ 435666.000000 │ 464674.690000 │      79980 │      N/A │ ❌
+│  6        │     42.787 │   42.870 │   0.4866 │  [42.496,43.244] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw8     │     41.676 │   41.635 │   0.1125 │  ±0.086 │ 435666.000000 │ 464676.180000 │      80108 │      N/A │ ❌
+│  8        │     41.676 │   41.635 │   0.1125 │  [41.548,41.721] │    0.974
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ BW v3 SWEEP: FLA ───────────────────────────────────────────────────
+│  BW_MULT  │ Median(ms) │     Mean │   StdDev │           95% CI │  vs bw=4
+│  ─────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw1     │    118.749 │  118.861 │   0.6825 │  ±0.525 │ 1070376.000000 │ 1164092.860000 │     194648 │      N/A │ ❌
+│  1        │    118.749 │  118.861 │   0.6825 │ [118.336,119.385] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw2     │    113.460 │  113.372 │   0.6462 │  ±0.497 │ 1070376.000000 │ 1164095.100000 │     194632 │      N/A │ ❌
+│  2        │    113.460 │  113.372 │   0.6462 │ [112.875,113.869] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw3     │    111.508 │  111.649 │   0.7352 │  ±0.565 │ 1070376.000000 │ 1164098.630000 │     194604 │      N/A │ ❌
+│  3        │    111.508 │  111.649 │   0.7352 │ [111.083,112.214] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw4     │    111.389 │  111.543 │   0.4041 │  ±0.311 │ 1070376.000000 │ 1164100.560000 │     194568 │      N/A │ ❌
+│  4        │    111.389 │  111.543 │   0.4041 │ [111.233,111.854] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw6     │    110.426 │  110.335 │   0.2998 │  ±0.230 │ 1070376.000000 │ 1164100.820000 │     194660 │      N/A │ ❌
+│  6        │    110.426 │  110.335 │   0.2998 │ [110.104,110.565] │    0.991
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_bw8     │    109.151 │  109.138 │   0.3933 │  ±0.302 │ 1070376.000000 │ 1164100.550000 │     194520 │      N/A │ ❌
+│  8        │    109.151 │  109.138 │   0.3933 │ [108.836,109.440] │    0.980
+└──────────────────────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 5b: HOT_BUCKETS Size Sweep — OMBI v3 (2^10 .. 2^18)              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ HOT v3 SWEEP: BAY ──────────────────────────────────────────────────
+│  2^exp  │    Buckets │ Median(ms) │     Mean │   StdDev │           95% CI │  vs 2^14
+│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot10   │     33.161 │   33.074 │   0.1481 │  ±0.114 │ 321270.000000 │ 346470.350000 │      60332 │      N/A │ ❌
+│  2^10   │       1024 │     33.161 │   33.074 │   0.1481 │  [32.960,33.188] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot11   │     31.117 │   31.131 │   0.0970 │  ±0.075 │ 321270.000000 │ 346470.720000 │      60356 │      N/A │ ❌
+│  2^11   │       2048 │     31.117 │   31.131 │   0.0970 │  [31.057,31.206] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot12   │     30.628 │   30.618 │   0.3454 │  ±0.265 │ 321270.000000 │ 346470.170000 │      60344 │      N/A │ ❌
+│  2^12   │       4096 │     30.628 │   30.618 │   0.3454 │  [30.352,30.883] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot13   │     29.845 │   29.954 │   0.2544 │  ±0.196 │ 321270.000000 │ 346470.170000 │      60492 │      N/A │ ❌
+│  2^13   │       8192 │     29.845 │   29.954 │   0.2544 │  [29.758,30.150] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot14   │     30.129 │   30.137 │   0.1458 │  ±0.112 │ 321270.000000 │ 346470.170000 │      60492 │      N/A │ ❌
+│  2^14   │      16384 │     30.129 │   30.137 │   0.1458 │  [30.025,30.249] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot15   │     30.057 │   30.028 │   0.0893 │  ±0.069 │ 321270.000000 │ 346470.170000 │      60520 │      N/A │ ❌
+│  2^15   │      32768 │     30.057 │   30.028 │   0.0893 │  [29.959,30.096] │    0.998
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot16   │     30.191 │   30.203 │   0.1057 │  ±0.081 │ 321270.000000 │ 346470.170000 │      60720 │      N/A │ ❌
+│  2^16   │      65536 │     30.191 │   30.203 │   0.1057 │  [30.122,30.284] │    1.002
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot17   │     30.733 │   30.810 │   0.1758 │  ±0.135 │ 321270.000000 │ 346470.170000 │      61376 │      N/A │ ❌
+│  2^17   │     131072 │     30.733 │   30.810 │   0.1758 │  [30.675,30.945] │    1.020
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot18   │     32.180 │   32.199 │   0.0728 │  ±0.056 │ 321270.000000 │ 346470.170000 │      67192 │      N/A │ ❌
+│  2^18   │     262144 │     32.180 │   32.199 │   0.0728 │  [32.143,32.255] │    1.068
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ HOT v3 SWEEP: COL ──────────────────────────────────────────────────
+│  2^exp  │    Buckets │ Median(ms) │     Mean │   StdDev │           95% CI │  vs 2^14
+│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot10   │     54.598 │   54.573 │   0.0753 │  ±0.058 │ 435666.000000 │ 464673.870000 │      79956 │      N/A │ ❌
+│  2^10   │       1024 │     54.598 │   54.573 │   0.0753 │  [54.515,54.631] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot11   │     48.628 │   48.612 │   0.1473 │  ±0.113 │ 435666.000000 │ 464674.470000 │      79876 │      N/A │ ❌
+│  2^11   │       2048 │     48.628 │   48.612 │   0.1473 │  [48.499,48.725] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot12   │     44.698 │   44.722 │   0.1092 │  ±0.084 │ 435666.000000 │ 464674.030000 │      79940 │      N/A │ ❌
+│  2^12   │       4096 │     44.698 │   44.722 │   0.1092 │  [44.638,44.806] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot13   │     42.912 │   42.915 │   0.1074 │  ±0.083 │ 435666.000000 │ 464674.190000 │      79864 │      N/A │ ❌
+│  2^13   │       8192 │     42.912 │   42.915 │   0.1074 │  [42.832,42.997] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot14   │     42.736 │   42.763 │   0.1976 │  ±0.152 │ 435666.000000 │ 464674.190000 │      80060 │      N/A │ ❌
+│  2^14   │      16384 │     42.736 │   42.763 │   0.1976 │  [42.611,42.915] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot15   │     42.347 │   42.320 │   0.1963 │  ±0.151 │ 435666.000000 │ 464674.190000 │      80144 │      N/A │ ❌
+│  2^15   │      32768 │     42.347 │   42.320 │   0.1963 │  [42.169,42.471] │    0.991
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot16   │     42.301 │   42.261 │   0.1413 │  ±0.109 │ 435666.000000 │ 464674.190000 │      80436 │      N/A │ ❌
+│  2^16   │      65536 │     42.301 │   42.261 │   0.1413 │  [42.152,42.369] │    0.990
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot17   │     42.304 │   42.163 │   0.3848 │  ±0.296 │ 435666.000000 │ 464674.190000 │      80952 │      N/A │ ❌
+│  2^17   │     131072 │     42.304 │   42.163 │   0.3848 │  [41.868,42.459] │    0.990
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot18   │     44.489 │   44.415 │   0.1884 │  ±0.145 │ 435666.000000 │ 464674.190000 │      83980 │      N/A │ ❌
+│  2^18   │     262144 │     44.489 │   44.415 │   0.1884 │  [44.270,44.560] │    1.041
+└──────────────────────────────────────────────────────────────────────────────
+
+┌─ HOT v3 SWEEP: FLA ──────────────────────────────────────────────────
+│  2^exp  │    Buckets │ Median(ms) │     Mean │   StdDev │           95% CI │  vs 2^14
+│  ───────┼────────────┼────────────┼──────────┼──────────┼──────────────────┼─────────
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot10   │    154.255 │  154.305 │   0.4848 │  ±0.373 │ 1070376.000000 │ 1164094.040000 │     194540 │      N/A │ ❌
+│  2^10   │       1024 │    154.255 │  154.305 │   0.4848 │ [153.932,154.677] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot11   │    127.475 │  127.481 │   0.3344 │  ±0.257 │ 1070376.000000 │ 1164099.350000 │     194592 │      N/A │ ❌
+│  2^11   │       2048 │    127.475 │  127.481 │   0.3344 │ [127.224,127.738] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot12   │    116.165 │  116.117 │   0.2733 │  ±0.210 │ 1070376.000000 │ 1164101.290000 │     194580 │      N/A │ ❌
+│  2^12   │       4096 │    116.165 │  116.117 │   0.2733 │ [115.907,116.327] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot13   │    112.580 │  112.506 │   0.4173 │  ±0.321 │ 1070376.000000 │ 1164100.660000 │     194536 │      N/A │ ❌
+│  2^13   │       8192 │    112.580 │  112.506 │   0.4173 │ [112.185,112.826] │      N/A
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot14   │    111.620 │  111.589 │   0.4172 │  ±0.321 │ 1070376.000000 │ 1164100.560000 │     194596 │      N/A │ ❌
+│  2^14   │      16384 │    111.620 │  111.589 │   0.4172 │ [111.269,111.910] │    1.000
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot15   │    111.442 │  111.426 │   0.4298 │  ±0.330 │ 1070376.000000 │ 1164100.560000 │     194776 │      N/A │ ❌
+│  2^15   │      32768 │    111.442 │  111.426 │   0.4298 │ [111.095,111.756] │    0.998
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot16   │    110.724 │  110.805 │   0.4344 │  ±0.334 │ 1070376.000000 │ 1164100.560000 │     194912 │      N/A │ ❌
+│  2^16   │      65536 │    110.724 │  110.805 │   0.4344 │ [110.471,111.139] │    0.992
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot17   │    111.713 │  111.689 │   0.4905 │  ±0.377 │ 1070376.000000 │ 1164100.560000 │     195364 │      N/A │ ❌
+│  2^17   │     131072 │    111.713 │  111.689 │   0.4905 │ [111.312,112.067] │    1.001
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  v3_hot18   │    114.460 │  114.796 │   0.5580 │  ±0.429 │ 1070376.000000 │ 1164100.560000 │     196596 │      N/A │ ❌
+│  2^18   │     262144 │    114.460 │  114.796 │   0.5580 │ [114.367,115.225] │    1.025
+└──────────────────────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 6: Scalability Analysis — Time vs Graph Size                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Extracting node counts and computing log-log regression...
+
+  Impl       │ Slope(log-log) │ Interpretation
+  ───────────┼──────────────┼──────────────────────────────────────
+
+  Slope = d(log time) / d(log nodes). For Dijkstra with a good PQ,
+  expect ~1.0–1.2 on road networks (near-linear in practice due to
+  sparse graphs and small average degree).
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SUMMARY: Speed Ratio vs Binary Heap — Road Networks (lower = faster)      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Impl       │      BAY │      COL │      FLA │       NW │       NE
+  ───────────┼───────────┼───────────┼───────────┼───────────┼──────────
+  bh        ═══════════════════════════════════════════════════════════════════════════════
+  MERGE & POST-PROCESS: Combining Run #1 + Run #2 data
+═══════════════════════════════════════════════════════════════════════════════
+
+  Merging stats: 131 rows from Run #1 → /mnt/d/Projects/Practice/Research/ombi/benchmarks/results/full_stats_20260405_140552.csv
+  Stats CSV now has 131 data rows
+
+  Merging build: 13 rows from Run #1 → /mnt/d/Projects/Practice/Research/ombi/benchmarks/results/full_build_20260405_140552.csv
+
+  Merging checksums: 131 rows from Run #1 → /mnt/d/Projects/Practice/Research/ombi/benchmarks/results/full_checksums_20260405_140552.csv
+
+  Merging memory: 131 rows from Run #1 → /mnt/d/Projects/Practice/Research/ombi/benchmarks/results/full_memory_20260405_140552.csv
+
+  ✅ All CSVs merged
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 6: Scalability Analysis — Time vs Graph Size                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Extracting node counts and computing log-log regression...
+
+  Scalability CSV: 55 data rows
+
+  Impl       │ Slope(log-log) │ Interpretation
+  ───────────┼──────────────┼──────────────────────────────────────
+  4h         │        1.138 │ ≈ O(n log n) — expected for Dijkstra
+  bh         │        1.127 │ ≈ O(n log n) — expected for Dijkstra
+  ch         │        1.094 │ ≈ O(n) — near-linear
+  dial       │        1.019 │ ≈ O(n) — near-linear
+  fh         │        1.103 │ ≈ O(n log n) — expected for Dijkstra
+  ombi       │        1.129 │ ≈ O(n log n) — expected for Dijkstra
+  ombi_v3    │        1.110 │ ≈ O(n log n) — expected for Dijkstra
+  ph         │        1.162 │ ≈ O(n log n) — expected for Dijkstra
+  r1         │        1.071 │ ≈ O(n) — near-linear
+  r2         │        0.953 │ ≈ O(n) — near-linear
+  sq         │        1.084 │ ≈ O(n) — near-linear
+
+  Slope = d(log time) / d(log nodes). For Dijkstra with a good PQ,
+  expect ~1.0–1.2 on road networks (near-linear in practice due to
+  sparse graphs and small average degree).
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SUMMARY: Speed Ratio vs Binary Heap — Road Networks (lower = faster)      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Impl       │      BAY │      COL │      FLA │       NW │       NE
+  ───────────┼───────────┼───────────┼───────────┼───────────┼──────────
+  bh         │    1.000 │    1.000 │    1.000 │    1.000 │    1.000
+  4h         │    0.982 │    0.976 │    0.972 │    0.995 │    1.004
+  fh         │    2.596 │    2.455 │    2.345 │    2.500 │    2.496
+  ph         │    1.888 │    1.791 │    1.787 │    1.933 │    2.009
+  dial       │    1.347 │    1.743 │    1.604 │    1.490 │    1.072
+  r1         │    1.361 │    1.325 │    1.283 │    1.274 │    1.224
+  r2         │    0.948 │    1.226 │    0.901 │    0.926 │    0.761
+  ombi       │    0.847 │    0.858 │    0.855 │    0.892 │    0.830
+  ombi_v3    │    0.783 │    0.792 │    0.783 │    0.784 │    0.755
+  sq         │    0.824 │    0.814 │    0.751 │    0.797 │    0.775
+  ch         │    2.303 │    2.223 │    2.115 │    2.191 │    2.198
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SUMMARY: Speed Ratio vs Binary Heap — Grid Graphs (lower = faster)        ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  --- Weight range: w100 ---
+  Impl       │      100x100 │      316x316 │    1000x1000 │    3162x3162
+  ───────────┼───────────────┼───────────────┼───────────────┼──────────────
+  bh         │        1.000 │        1.000 │        1.000 │        1.000
+  4h         │        0.703 │        0.736 │        0.846 │        0.861
+  fh         │        1.634 │        1.966 │        1.775 │        1.952
+  ph         │        1.197 │        1.485 │        1.518 │        1.847
+  dial       │        0.375 │        0.346 │        0.422 │        0.414
+  r1         │        0.897 │        0.688 │        0.587 │        0.619
+  r2         │        0.528 │        0.438 │        0.487 │        0.491
+  ombi       │        0.485 │        0.580 │        0.659 │        0.654
+  ombi_v3    │        0.478 │        0.503 │        0.611 │        0.620
+  sq         │        0.374 │        0.463 │        0.507 │        0.544
+  ch         │        1.818 │        2.738 │        2.270

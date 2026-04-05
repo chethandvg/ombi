@@ -26,7 +26,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#if defined(OMBI_V2)
+#if defined(OMBI_V3)
+#include "ombi_v3.h"
+#elif defined(OMBI_V2)
 #include "ombi_opt2.h"
 #elif defined(OMBI_OPT)
 #include "ombi_opt.h"
@@ -90,7 +92,9 @@ int main(int argc, char **argv)
     }
 
     fprintf(stderr, "c ---------------------------------------------------\n");
-#if defined(OMBI_V2)
+#if defined(OMBI_V3)
+    fprintf(stderr, "c OMBI v3 (Two-Level Bitmap + Pool) — DIMACS Challenge format\n");
+#elif defined(OMBI_V2)
     fprintf(stderr, "c OMBI v2 (Caliber/F-set) — DIMACS Challenge format\n");
 #elif defined(OMBI_OPT)
     fprintf(stderr, "c OMBI Optimized — DIMACS Challenge format\n");

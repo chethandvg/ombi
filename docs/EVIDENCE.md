@@ -1,7 +1,7 @@
 # 📊 OMBI: Complete Experimental Evidence
 
 > **Document:** Comprehensive evidence for the OMBI paper  
-> **Created:** Session 18 | **Updated:** Session 31 (fairness audit — §4 & §21 corrected)  
+> **Created:** Session 18 | **Updated:** Session 32 (full-benchmark fairness audit — §30 added)  
 
 
 
@@ -52,6 +52,7 @@
 27. [Comparison 23: Compilation & Binary Size](#-27-comparison-23-compilation-binary-size) ← **NEW**
 28. [Comparison 24: Implementation Effort](#-28-comparison-24-implementation-effort) ← **NEW**
 29. [Comparison 25: Contraction Hierarchies (CH) — SSSP](#-29-comparison-25-contraction-hierarchies) ← **NEW Session 30**
+30. [Comparison 26: Benchmark Fairness Audit](#-30-comparison-26-benchmark-fairness-audit) ← **NEW Session 32**
 
 
 
@@ -1757,6 +1758,109 @@ OMBI █████████████████████████
 
 ---
 
+## ⚖️ 30. Comparison 26: Benchmark Fairness Audit
+
+> **Session 32 — Full source-code review of all implementations + benchmark harness**
+
+A comprehensive fairness audit of the benchmark methodology, examining whether structural differences between implementations bias the results. This section documents what is fair, what differs, and provides the recommended paper footnote.
+
+### ✅ What IS Fair (Verified)
+
+| Aspect | Status | Evidence |
+|--------|:------:|----------|
+| **Compiler flags** | ✅ Identical | `g++ -std=c++17 -Wall -O3 -DNDEBUG` for all (`Makefile`) |
+| **Graph data** | ✅ Identical | Same `.gr` + `.ss` files, same DIMACS format |
+| **Timing methodology** | ✅ Identical | 11 runs, drop min/max, 1 warmup (`run_full_benchmark.sh`) |
+| **Invocation** | ✅ Identical | `"${BIN_DIR}/${tbin}" "${gr_file}" "${ss_file}" "${out_file}"` — no extra args |
+| **SQ auto-tuning** | ✅ Fair | `cLevels=0, logDelta=0` → SQ auto-optimizes internally (`smartq.cc`) |
+| **Lazy init** | ✅ Both use it | SQ: `tStamp`-based; OMBI: `uint16_t` generation stamps |
+| **Correctness** | ✅ Verified | MD5 checksums match BH reference for all implementations |
+
+### ⚠️ Structural Differences (Fair but Worth Disclosing)
+
+#### 1. Graph Representation — The Biggest Difference
+
+| Property | SQ (Goldberg) | OMBI |
+|----------|--------------|------|
+| **Format** | Pointer-based adjacency list | CSR (Compressed Sparse Row) |
+| **Arc traversal** | `arc->head` pointer → Node struct | `targets[offsets[u]..offsets[u+1]]` contiguous array |
+| **Cache behavior** | Pointer chasing → cache misses | Sequential memory access → cache-friendly |
+| **Memory layout** | Scattered Node allocations | Three contiguous arrays (`offsets`, `targets`, `weights`) |
+
+> **Impact:** CSR provides better cache locality during edge relaxation, which is the innermost loop of Dijkstra. This favors OMBI on cache-sensitive workloads (large graphs). However, this is how each implementation was **originally designed** — SQ uses Goldberg's original pointer-based format from the 2001 paper.
+
+#### 2. Per-Node Memory Footprint
+
+| Implementation | Per-Node Size | Components | 10M-node graph |
+|----------------|:------------:|------------|:--------------:|
+| **SQ** | ~80-96 bytes | dist + first + parent + where + tStamp + next + prev + bucket + caliber + padding | ~960 MB |
+| **OMBI** | 16 bytes | dist(8) + distGen(2) + settledGen(2) + pad(4) | ~160 MB |
+
+> **Impact:** OMBI's 6× smaller per-node footprint means more nodes fit in cache simultaneously. However, OMBI's total memory can be higher due to pool allocator + bitmap arrays + cold PQ overhead (see §11 — on grid_3162x3162_w100: SQ=1,643 MB vs OMBI=2,190 MB total RSS).
+
+#### 3. SQ's Caliber/F-set (Algorithmic Advantage for SQ)
+
+SQ has a genuine algorithmic optimization that OMBI lacks:
+
+```cpp
+// smartq.cc — caliber/F-set bypass:
+if (newNode->dist <= mu + CALIBER(newNode)) {
+    // Vertex goes to F-stack (exact distance), bypasses bucket queue entirely
+    newNode->where = IN_F;
+    F->Push(newNode);
+}
+```
+
+- **Caliber** = minimum incoming arc weight per node, precomputed in constructor
+- When a vertex's distance ≤ μ + caliber, it's guaranteed to have its final distance → settles immediately via F-stack
+- Bypasses 2.7–7.7% of bucket operations (see §4)
+- Especially effective on grids with narrow weights (w100) where caliber=1
+
+> **Impact:** This is a genuine algorithmic advantage, not a representation artifact. OMBI's architecture (bitmap + two-level buckets) is structurally incompatible with caliber (see §24 for the negative result).
+
+#### 4. Update Counter Semantics (Already Documented in §4)
+
+| Counter | What it counts | Scope |
+|---------|---------------|-------|
+| SQ `cUpdates` | Bucket insert/move operations only | Excludes F-set pushes |
+| OMBI `statUpdates` | Every distance improvement | All relaxations |
+
+> Already marked with `(*)` in benchmark output and fully documented in §4.
+
+#### 5. Bucket Architecture
+
+| Property | SQ | OMBI |
+|----------|------|------|
+| **Structure** | Multi-level buckets (auto-tuned #levels + delta) | Fixed two-level (16K L0 + 256 L1) |
+| **Find-min** | Linear scan over bucket pointers | Bitmap + `__builtin_ctzll` (hardware CTZ) |
+| **Tuning** | Auto-selects levels and delta per graph | Fixed parameters (HOT_LOG=14, bw=4×w_min) |
+
+### 📊 Evidence from Results — Honest Assessment
+
+| Domain | OMBI vs BH | SQ vs BH | Winner | Margin |
+|--------|:----------:|:--------:|:------:|:------:|
+| Road NE | 0.755× | 0.775× | OMBI v3 | ~2.6% |
+| Grid w100 3162 | 0.620× | 0.544× | SQ | ~14% |
+| Grid w100000 1000 | 0.948× | 0.550× | SQ | ~72% |
+
+> **Pattern:** OMBI v3 is competitive or faster on road networks (sparse, large weight range). SQ dominates on grids (dense, uniform weights where caliber/F-set is most effective and SQ's auto-tuning excels).
+
+### 📝 Recommended Paper Footnote
+
+> *"OMBI uses CSR (Compressed Sparse Row) representation while SQ uses Goldberg's original pointer-based adjacency lists. The CSR format provides better cache locality during edge relaxation but does not affect algorithmic complexity. SQ additionally benefits from a caliber/F-set optimization (§4) that bypasses the bucket queue for 2.7–7.7% of operations on road networks."*
+
+### Verdict
+
+The benchmarks are **fair within standard practice** for algorithm engineering papers:
+- Same compiler, flags, data, timing methodology, and invocation
+- The CSR vs pointer-based difference is a **representation choice**, not a benchmark bias — each implementation uses its original/natural format
+- SQ's caliber/F-set is a **genuine algorithmic feature**, not an unfair advantage
+- The footnote above provides honest disclosure for readers
+
+**Decision (Session 32):** Option A — disclose via footnote rather than porting either implementation to the other's graph format.
+
+---
+
 ## 📝 Changelog
 
 | Session | Update |
@@ -1768,4 +1872,5 @@ OMBI █████████████████████████
 | 29 | **9 new comparisons added (Sections 20-28):** Code complexity SLOC (OMBI 3.2× simpler than SQ), time per relaxation (OMBI within 2.3% of SQ per-op), throughput (queries/sec), hot/cold partition effectiveness, **caliber/F-set negative result** (documented architectural incompatibility), correctness domain analysis, scalability slope, compilation/binary size (placeholder), implementation effort rating. **Section 4 fixed:** Added critical caveat that SQ's `cUpdates` excludes F-set pushes — not apples-to-apples with OMBI's `statUpdates`. Total evidence: **24 comparisons** + correctness verification. |
 | 30 | **CH benchmark results + compilation data:** (1) §27 populated with measured compile times & binary sizes from `run_new_comparisons.sh` — OMBI 1,047ms/29KB, SQ 812ms/26KB, heaps ~600-750ms/21KB. (2) §29 added: Contraction Hierarchies SSSP benchmark — CH is 2.3-3.1× slower than BH for SSSP (augmented graph ~2× more edges). 5/5 checksums verified correct. (3) §18 updated: 25/26 comparisons complete (only cache profiling remains — `perf` unavailable in WSL2). (4) ToC updated with §29. Total evidence: **25 comparisons** + correctness verification + 10 implementations. |
 | 31 | **Fairness audit & corrections:** (1) §4 (Comparison 3) completely rewritten — renamed "Relaxation Counts & Bucket Operations", separated true relaxations (graph-determined, identical across all implementations) from SQ's `cUpdates` (bucket operations only). Added F-set bypass quantification table (2.7-7.7% of operations). Removed misleading "OMBI vs SQ" percentage column that compared apples to oranges. (2) §21 (Comparison 17) corrected — SQ's ns/relaxation now uses true relaxation count as denominator. SQ average changed from 85.4 → 81.6 ns/relaxation; OMBI gap changed from 2.3% → 7.1% per operation. Key finding updated: ~half the speed gap is per-operation efficiency, ~half is caliber/F-set avoiding bucket ops. (3) §10 duplicate USA table removed. (4) Restored §5 (Comparison 4: Variant Sensitivity) that was accidentally removed. |
+| 32 | **Full-benchmark fairness audit (§30, Comparison 26):** Comprehensive source-code review of SQ (`smartq.cc`, `sp.cc`, `nodearc.h`, `main.cc`) and OMBI (`ombi_v3.cc`, `ombi_v3.h`, `main.cc`, `nodearc.h`) plus `Makefile` and `run_full_benchmark.sh`. Verified 7 fairness aspects (compiler, data, timing, invocation, auto-tuning, lazy init, correctness). Documented 5 structural differences: (1) CSR vs pointer-based graph representation (biggest, favors OMBI's cache behavior), (2) per-node memory footprint (OMBI 16B vs SQ ~80-96B), (3) SQ's caliber/F-set algorithmic advantage, (4) update counter semantics (already in §4), (5) bucket architecture differences. Added recommended paper footnote text. **Decision: Option A** — disclose via footnote, not port implementations. |
 

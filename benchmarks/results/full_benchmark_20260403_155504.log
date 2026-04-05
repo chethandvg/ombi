@@ -1,0 +1,1857 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  OMBI — Comprehensive Fair Benchmark Suite v2                              ║
+║  Road + Grid · Stats · Memory · Variants · Sweeps · CH · Scalability       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Project root:   /mnt/d/Projects/Practice/Research/ombi
+  Data dir:       /mnt/d/Projects/Practice/Research/ombi/data
+  Runs:           11 total → drop min/max → 9 effective
+  Warmup:         1 untimed run(s)
+  Confidence:     95% CI (t-distribution, df=8, t=2.306)
+  Date:           2026-04-03 15:55:04
+
+--- Checking binaries ---
+  ✅ Core binaries found
+  ✅ BW_MULT sweep binaries: 6/6
+  ✅ HOT_BUCKETS sweep binaries: 9/9
+  ✅ BW_MULT v3 sweep binaries: 6/6
+  ✅ HOT_BUCKETS v3 sweep binaries: 9/9
+  ✅ Data directory found
+  ✅ GNU time available (memory measurement enabled)
+
+--- Checking grid graphs ---
+  ✅ grid_100x100_w100
+  ✅ grid_100x100_w100000
+  ✅ grid_316x316_w100
+  ✅ grid_316x316_w100000
+  ✅ grid_1000x1000_w100
+  ✅ grid_1000x1000_w100000
+  ✅ grid_3162x3162_w100
+  ✅ grid_3162x3162_w100000
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 0: Compilation Time & Binary Size                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Target         │   Compile(s) │  Binary(bytes)
+  ────────────── ┼ ──────────────┼ ───────────────
+  ombi           │        1.493 │          26528
+  ombi_opt       │        1.537 │          30624
+  ombi_v2        │        1.550 │          30696
+  ombi_v3        │        1.616 │          31032
+  dij_bh         │        1.118 │          21872
+  dij_4h         │        0.923 │          21560
+  dij_fh         │        1.067 │          21584
+  dij_ph         │        0.900 │          21552
+  dij_dial       │        1.054 │          21952
+  dij_r1         │        1.077 │          21968
+  dij_r2         │        1.200 │          26192
+  dij_ch         │        1.784 │          48952
+  sq             │        1.431 │          27016
+
+  Rebuilding all binaries for benchmark...
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 1: Core Benchmark — DIMACS Road Networks                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  ROAD: BAY  (321270 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │     30.710 │   30.758 │   0.1851 │  ±0.142 │ 321270.000000 │ 346468.940000 │      47276 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │     30.159 │   30.182 │   0.1309 │  ±0.101 │ 321270.000000 │ 346468.540000 │      48108 │    0.982 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │     79.708 │   79.290 │   1.0699 │  ±0.822 │ 321270.000000 │ 346468.770000 │      64784 │    2.596 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │     57.972 │   57.968 │   0.2351 │  ±0.181 │ 321270.000000 │ 346470.160000 │      59696 │    1.888 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │     41.353 │   41.530 │   0.5786 │  ±0.445 │ 321270.000000 │ 346471.360000 │      60236 │    1.347 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │     41.793 │   41.880 │   0.2918 │  ±0.224 │ 321270.000000 │ 346471.360000 │      47256 │    1.361 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │     29.104 │   29.105 │   0.2561 │  ±0.197 │ 321270.000000 │ 346471.360000 │      47312 │    0.948 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     26.021 │   26.048 │   0.2171 │  ±0.167 │ 321270.000000 │ 346470.170000 │      57024 │    0.847 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     24.041 │   24.022 │   0.1107 │  ±0.085 │ 321270.000000 │ 346470.170000 │      60384 │    0.783 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │     25.310 │   25.268 │   0.2032 │  ±0.156 │ 321270.000000 │ 333810.250000(*) │      44672 │    0.824 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │     70.728 │   70.676 │   0.3136 │  ±0.241 │ 321270.000000 │ 364238.090000 │     232144 │    2.303 │ ✅
+│  (*) SQ 'updates' = bucket moves only, NOT true dist[] improvements.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  ROAD: COL  (435666 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │     43.935 │   43.990 │   0.2191 │  ±0.168 │ 435666.000000 │ 464680.740000 │      61944 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │     42.883 │   43.457 │   1.1732 │  ±0.902 │ 435666.000000 │ 464679.250000 │      63264 │    0.976 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │    107.864 │  107.997 │   0.4014 │  ±0.309 │ 435666.000000 │ 464679.720000 │      85936 │    2.455 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │     78.671 │   78.628 │   0.1488 │  ±0.114 │ 435666.000000 │ 464679.630000 │      78884 │    1.791 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │     76.585 │   77.501 │   2.8419 │  ±2.184 │ 435666.000000 │ 464677.920000 │      80656 │    1.743 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │     58.194 │   58.261 │   0.2547 │  ±0.196 │ 435666.000000 │ 464677.920000 │      62060 │    1.325 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │     53.883 │   53.915 │   0.1995 │  ±0.153 │ 435666.000000 │ 464677.920000 │      62064 │    1.226 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     37.717 │   37.709 │   0.1857 │  ±0.143 │ 435666.000000 │ 464674.190000 │      73180 │    0.858 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     34.814 │   34.779 │   0.1488 │  ±0.114 │ 435666.000000 │ 464674.190000 │      80004 │    0.792 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │     35.773 │   35.756 │   0.2064 │  ±0.159 │ 435666.000000 │ 441045.375000(*) │      58624 │    0.814 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │     97.654 │   97.525 │   0.8559 │  ±0.658 │ 435666.000000 │ 485923.050000 │     303808 │    2.223 │ ✅
+│  (*) SQ 'updates' = bucket moves only, NOT true dist[] improvements.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  ROAD: FLA  (1070376 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │    116.938 │  116.930 │   0.2392 │  ±0.184 │ 1070376.000000 │ 1164096.650000 │     149948 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │    113.702 │  113.586 │   0.4445 │  ±0.342 │ 1070376.000000 │ 1164093.020000 │     153632 │    0.972 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │    274.187 │  274.145 │   0.3526 │  ±0.271 │ 1070376.000000 │ 1164093.930000 │     209328 │    2.345 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │    208.997 │  209.011 │   0.5112 │  ±0.393 │ 1070376.000000 │ 1164094.010000 │     192332 │    1.787 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │    187.561 │  186.967 │   1.8282 │  ±1.405 │ 1070376.000000 │ 1164092.870000 │     179476 │    1.604 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │    150.058 │  150.041 │   0.4040 │  ±0.311 │ 1070376.000000 │ 1164092.870000 │     150032 │    1.283 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │    105.317 │  105.327 │   0.2586 │  ±0.199 │ 1070376.000000 │ 1164092.870000 │     150084 │    0.901 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    100.027 │  100.263 │   1.2238 │  ±0.941 │ 1070376.000000 │ 1164100.560000 │     173028 │    0.855 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │     91.572 │   91.459 │   0.4023 │  ±0.309 │ 1070376.000000 │ 1164100.560000 │     194644 │    0.783 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │     87.860 │   87.820 │   0.3304 │  ±0.254 │ 1070376.000000 │ 1074949.500000(*) │     141952 │    0.751 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │    247.342 │  246.699 │   2.4340 │  ±1.871 │ 1070376.000000 │ 1215165.500000 │     759968 │    2.115 │ ✅
+│  (*) SQ 'updates' = bucket moves only, NOT true dist[] improvements.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  ROAD: NW  (1207945 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │    134.067 │  134.166 │   1.0165 │  ±0.781 │ 1207945.000000 │ 1274533.550000 │     162780 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │    133.455 │  133.336 │   0.5615 │  ±0.432 │ 1207945.000000 │ 1274530.950000 │     167132 │    0.995 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │    335.217 │  335.364 │   0.9704 │  ±0.746 │ 1207945.000000 │ 1274532.590000 │     229648 │    2.500 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │    259.163 │  259.209 │   0.5797 │  ±0.446 │ 1207945.000000 │ 1274531.860000 │     210628 │    1.933 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │    199.816 │  199.532 │   6.0898 │  ±4.681 │ 1207945.000000 │ 1274532.250000 │     177284 │    1.490 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │    170.845 │  170.849 │   0.4395 │  ±0.338 │ 1207945.000000 │ 1274532.250000 │     162772 │    1.274 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │    124.135 │  124.139 │   0.3757 │  ±0.289 │ 1207945.000000 │ 1274532.250000 │     162672 │    0.926 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    119.597 │  119.317 │   1.3034 │  ±1.002 │ 1207945.000000 │ 1274537.780000 │     189808 │    0.892 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    105.149 │  105.045 │   0.5117 │  ±0.393 │ 1207945.000000 │ 1274537.780000 │     213220 │    0.784 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │    106.820 │  106.720 │   0.7718 │  ±0.593 │ 1207945.000000 │ 1232903.000000(*) │     154752 │    0.797 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │    293.696 │  293.322 │   1.7250 │  ±1.326 │ 1207945.000000 │ 1327799.400000 │     813352 │    2.191 │ ✅
+│  (*) SQ 'updates' = bucket moves only, NOT true dist[] improvements.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  ROAD: NE  (1524453 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │    183.543 │  183.274 │   0.8687 │  ±0.668 │ 1524453.000000 │ 1659527.680000 │     213168 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │    184.262 │  184.177 │   0.8248 │  ±0.634 │ 1524453.000000 │ 1659525.580000 │     218616 │    1.004 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │    458.033 │  457.575 │   0.9741 │  ±0.749 │ 1524453.000000 │ 1659526.440000 │     297564 │    2.496 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │    368.672 │  369.252 │   2.1239 │  ±1.633 │ 1524453.000000 │ 1659528.590000 │     273652 │    2.009 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │    196.763 │  196.831 │   3.8490 │  ±2.959 │ 1524453.000000 │ 1659529.900000 │     222848 │    1.072 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │    224.737 │  225.013 │   0.9481 │  ±0.729 │ 1524453.000000 │ 1659529.900000 │     212840 │    1.224 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │    139.628 │  139.610 │   0.2705 │  ±0.208 │ 1524453.000000 │ 1659529.900000 │     212888 │    0.761 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    152.270 │  152.908 │   1.9042 │  ±1.464 │ 1524453.000000 │ 1659524.640000 │     247260 │    0.830 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    138.487 │  138.524 │   0.5467 │  ±0.420 │ 1524453.000000 │ 1659524.640000 │     276756 │    0.755 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │    142.175 │  142.323 │   0.8958 │  ±0.689 │ 1524453.000000 │ 1614096.625000(*) │     201728 │    0.775 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │    403.379 │  402.646 │   2.0859 │  ±1.603 │ 1524453.000000 │ 1760684.770000 │    1130312 │    2.198 │ ✅
+│  (*) SQ 'updates' = bucket moves only, NOT true dist[] improvements.
+└───────────────────────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  SECTION 2: Core Benchmark — Synthetic Grid Graphs                         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_100x100_w100  (10000 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │      0.976 │    0.978 │   0.0309 │  ±0.024 │ 10000.000000 │ 13081.940000 │       5552 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │      0.686 │    0.691 │   0.0227 │  ±0.017 │ 10000.000000 │ 13078.630000 │       5152 │    0.703 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │      1.594 │    1.604 │   0.0359 │  ±0.028 │ 10000.000000 │ 13077.120000 │       5804 │    1.634 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │      1.167 │    1.166 │   0.0276 │  ±0.021 │ 10000.000000 │ 13080.800000 │       5552 │    1.197 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │      0.365 │    0.368 │   0.0098 │  ±0.007 │ 10000.000000 │ 13081.450000 │       5548 │    0.375 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │      0.875 │    0.876 │   0.0089 │  ±0.007 │ 10000.000000 │ 13081.450000 │       5548 │    0.897 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │      0.515 │    0.519 │   0.0120 │  ±0.009 │ 10000.000000 │ 13081.450000 │       5552 │    0.528 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │      0.473 │    0.471 │   0.0237 │  ±0.018 │ 10000.000000 │ 13089.340000 │       7852 │    0.485 │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │      0.466 │    0.467 │   0.0210 │  ±0.016 │ 10000.000000 │ 13089.340000 │       6188 │    0.478 │ ❌
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │      0.365 │    0.360 │   0.0165 │  ±0.013 │ 10000.000000 │ 11416.129883(*) │       5116 │    0.374 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │      1.774 │    1.775 │   0.0288 │  ±0.022 │ 10000.000000 │ 15631.010000 │      15312 │    1.818 │ ✅
+│  (*) SQ 'updates' = bucket moves only.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_100x100_w100000  (10000 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │      0.856 │    0.864 │   0.0310 │  ±0.024 │ 10000.000000 │ 13166.190000 │       5464 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │      0.680 │    0.675 │   0.0167 │  ±0.013 │ 10000.000000 │ 13166.310000 │       5188 │    0.795 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │      1.615 │    1.611 │   0.0416 │  ±0.032 │ 10000.000000 │ 13166.330000 │       5804 │    1.887 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │      1.152 │    1.153 │   0.0327 │  ±0.025 │ 10000.000000 │ 13166.310000 │       5540 │    1.345 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │      7.680 │    7.678 │   0.1116 │  ±0.086 │ 10000.000000 │ 13166.460000 │      10536 │    8.972 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │      1.230 │    1.227 │   0.0289 │  ±0.022 │ 10000.000000 │ 13166.460000 │       5316 │    1.437 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │      4.211 │    4.211 │   0.0439 │  ±0.034 │ 10000.000000 │ 13166.460000 │       5548 │    4.919 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │      0.812 │    0.817 │   0.0228 │  ±0.018 │ 10000.000000 │ 13166.580000 │       7212 │    0.949 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │      0.753 │    0.750 │   0.0170 │  ±0.013 │ 10000.000000 │ 13166.580000 │       6188 │    0.880 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │      0.379 │    0.381 │   0.0145 │  ±0.011 │ 10000.000000 │ 12352.650391(*) │       5116 │    0.443 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │      1.584 │    1.589 │   0.0203 │  ±0.016 │ 10000.000000 │ 15651.740000 │      15404 │    1.850 │ ✅
+│  (*) SQ 'updates' = bucket moves only.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_316x316_w100  (99856 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │     12.024 │   12.064 │   0.2164 │  ±0.166 │ 99856.000000 │ 131332.110000 │      21360 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │      8.855 │    8.819 │   0.1993 │  ±0.153 │ 99856.000000 │ 131332.570000 │      21272 │    0.736 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │     23.642 │   23.752 │   0.3713 │  ±0.285 │ 99856.000000 │ 131335.950000 │      26560 │    1.966 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │     17.852 │   17.929 │   0.3530 │  ±0.271 │ 99856.000000 │ 131328.840000 │      24952 │    1.485 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │      4.157 │    4.102 │   0.1265 │  ±0.097 │ 99856.000000 │ 131324.250000 │      21292 │    0.346 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │      8.274 │    8.307 │   0.2301 │  ±0.177 │ 99856.000000 │ 131324.250000 │      21252 │    0.688 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │      5.269 │    5.296 │   0.1967 │  ±0.151 │ 99856.000000 │ 131324.250000 │      21352 │    0.438 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │      6.971 │    6.983 │   0.2997 │  ±0.230 │ 99856.000000 │ 131359.670000 │      30272 │    0.580 │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │      6.054 │    6.081 │   0.2000 │  ±0.154 │ 99856.000000 │ 131359.670000 │      25508 │    0.503 │ ❌
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │      5.571 │    5.423 │   0.3676 │  ±0.283 │ 99856.000000 │ 114720.859375(*) │      19712 │    0.463 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │     32.925 │   32.881 │   0.2131 │  ±0.164 │ 99856.000000 │ 158162.040000 │     129144 │    2.738 │ ✅
+│  (*) SQ 'updates' = bucket moves only.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_316x316_w100000  (99856 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │     10.450 │   10.435 │   0.1581 │  ±0.122 │ 99856.000000 │ 132274.220000 │      21280 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │      8.873 │    8.851 │   0.1784 │  ±0.137 │ 99856.000000 │ 132274.460000 │      21132 │    0.849 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │     24.061 │   24.083 │   0.2465 │  ±0.189 │ 99856.000000 │ 132274.610000 │      26548 │    2.303 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │     17.112 │   17.092 │   0.1556 │  ±0.120 │ 99856.000000 │ 132274.910000 │      24832 │    1.638 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │     32.496 │   32.554 │   0.4029 │  ±0.310 │ 99856.000000 │ 132274.660000 │      26776 │    3.110 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │     14.001 │   13.979 │   0.1498 │  ±0.115 │ 99856.000000 │ 132274.660000 │      21248 │    1.340 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │     28.374 │   28.417 │   0.1586 │  ±0.122 │ 99856.000000 │ 132274.660000 │      21368 │    2.715 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │     10.159 │   10.117 │   0.1387 │  ±0.107 │ 99856.000000 │ 132274.310000 │      24824 │    0.972 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │      9.114 │    9.110 │   0.1096 │  ±0.084 │ 99856.000000 │ 132274.310000 │      25720 │    0.872 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │      4.859 │    4.884 │   0.1187 │  ±0.091 │ 99856.000000 │ 126098.882812(*) │      19456 │    0.465 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │     30.531 │   30.557 │   0.2216 │  ±0.170 │ 99856.000000 │ 158827.880000 │     129228 │    2.922 │ ✅
+│  (*) SQ 'updates' = bucket moves only.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_1000x1000_w100  (1000000 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │    189.718 │  189.282 │   1.2270 │  ±0.943 │ 1000000.000000 │ 1318482.710000 │     180540 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │    160.565 │  159.557 │   2.7305 │  ±2.099 │ 1000000.000000 │ 1318495.300000 │     183772 │    0.846 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │    336.785 │  336.642 │   1.8160 │  ±1.396 │ 1000000.000000 │ 1318496.850000 │     235624 │    1.775 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │    288.049 │  288.048 │   2.1334 │  ±1.640 │ 1000000.000000 │ 1318510.260000 │     219724 │    1.518 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │     80.069 │   80.164 │   0.2138 │  ±0.164 │ 1000000.000000 │ 1318524.120000 │     180532 │    0.422 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │    111.317 │  111.387 │   0.3245 │  ±0.249 │ 1000000.000000 │ 1318524.120000 │     180248 │    0.587 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │     92.391 │   92.453 │   0.4153 │  ±0.319 │ 1000000.000000 │ 1318524.120000 │     180440 │    0.487 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    125.069 │  124.547 │   1.2187 │  ±0.937 │ 1000000.000000 │ 1318863.230000 │     255056 │    0.659 │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    115.903 │  115.136 │   1.5429 │  ±1.186 │ 1000000.000000 │ 1318863.230000 │     222532 │    0.611 │ ❌
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │     96.095 │   95.828 │   0.9276 │  ±0.713 │ 1000000.000000 │ 1152324.375000(*) │     166912 │    0.507 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │    430.607 │  431.162 │   3.6701 │  ±2.821 │ 1000000.000000 │ 1595767.140000 │    1286900 │    2.270 │ ✅
+│  (*) SQ 'updates' = bucket moves only.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_1000x1000_w100000  (1000000 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │    174.974 │  175.049 │   1.1472 │  ±0.882 │ 1000000.000000 │ 1326716.280000 │     180260 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │    167.573 │  165.732 │   3.4494 │  ±2.651 │ 1000000.000000 │ 1326716.060000 │     183948 │    0.958 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │    362.737 │  361.999 │   1.5624 │  ±1.201 │ 1000000.000000 │ 1326715.960000 │     235440 │    2.073 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │    299.152 │  299.627 │   1.9677 │  ±1.513 │ 1000000.000000 │ 1326715.900000 │     219920 │    1.710 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │    242.128 │  241.247 │   2.7972 │  ±2.150 │ 1000000.000000 │ 1326715.570000 │     185692 │    1.384 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │    206.701 │  206.785 │   0.7320 │  ±0.563 │ 1000000.000000 │ 1326715.570000 │     180192 │    1.181 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │    213.236 │  213.251 │   1.0676 │  ±0.821 │ 1000000.000000 │ 1326715.570000 │     180104 │    1.219 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │    178.907 │  178.340 │   1.0943 │  ±0.841 │ 1000000.000000 │ 1326714.530000 │     200564 │    1.022 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │    165.830 │  165.625 │   2.0593 │  ±1.583 │ 1000000.000000 │ 1326714.530000 │     222520 │    0.948 │ ✅
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │     96.200 │   96.664 │   1.0359 │  ±0.796 │ 1000000.000000 │ 1273279.000000(*) │     167168 │    0.550 │ ✅
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+p res ss dij_ch
+│  ch         │    415.523 │  415.324 │   2.3883 │  ±1.836 │ 1000000.000000 │ 1601291.480000 │    1286476 │    2.375 │ ✅
+│  (*) SQ 'updates' = bucket moves only.
+└───────────────────────────────────────────────────────────────────────────────
+
+┌───────────────────────────────────────────────────────────────────────────────
+│  GRID: grid_3162x3162_w100  (9998244 nodes)
+├───────────────────────────────────────────────────────────────────────────────
+│  Impl       │ Median(ms) │     Mean │   StdDev │  95%CI± │      Scans │    Updates │    RSS(KB) │    vs BH │ ✓
+│  ───────────┼────────────┼──────────┼──────────┼──────────┼────────────┼────────────┼────────────┼──────────┼───
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+p res ss dij_bh
+│  bh         │   2622.459 │ 2622.764 │  16.0590 │ ±12.344 │ 9998244.000000 │ 13185511.280000 │    1770856 │    1.000 │ ✅
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+p res ss dij_4h
+│  4h         │   2258.249 │ 2246.155 │  16.5911 │ ±12.753 │ 9998244.000000 │ 13185406.210000 │    1809008 │    0.861 │ ✅
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+p res ss dij_fh
+│  fh         │   5118.738 │ 5153.126 │  56.0106 │ ±43.053 │ 9998244.000000 │ 13185403.990000 │    2326772 │    1.952 │ ✅
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+p res ss dij_ph
+│  ph         │   4842.837 │ 4849.012 │  49.8301 │ ±38.303 │ 9998244.000000 │ 13185416.880000 │    2170324 │    1.847 │ ✅
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+p res ss dij_dial
+│  dial       │   1085.793 │ 1085.250 │   7.2685 │  ±5.587 │ 9998244.000000 │ 13185427.060000 │    1770344 │    0.414 │ ✅
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+p res ss dij_r1
+│  r1         │   1622.117 │ 1620.607 │  11.9468 │  ±9.183 │ 9998244.000000 │ 13185427.060000 │    1770036 │    0.619 │ ✅
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+p res ss dij_r2
+│  r2         │   1288.237 │ 1289.310 │   7.4288 │  ±5.710 │ 9998244.000000 │ 13185427.060000 │    1769956 │    0.491 │ ✅
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi       │   1715.010 │ 1714.986 │  17.1063 │ ±13.149 │ 9998244.000000 │ 13190046.550000 │    2292788 │    0.654 │ ❌
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+p res ss ombi
+│  ombi_v3    │   1625.796 │ 1630.346 │   8.7955 │  ±6.761 │ 9998244.000000 │ 13190046.550000 │    2189800 │    0.620 │ ❌
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+p res ss sq
+│  sq         │   1427.824 │ 1402.135 │  47.2282 │ ±36.303 │ 9998244.000000 │ 11520402.000000(*) │    1643392 │    0.544 │ ✅

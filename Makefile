@@ -34,7 +34,7 @@ BIN_DIR   = bin
 # =============================================================================
 # Phony targets
 # =============================================================================
-.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot clean help
+.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot sweep-bw-v3 sweep-hot-v3 clean help
 
 help:
 	@echo ""
@@ -49,6 +49,8 @@ help:
 	@echo "  make tools        Build utility programs"
 	@echo "  make sweep-bw     Build OMBI with BW_MULT = 1,2,3,4,6,8"
 	@echo "  make sweep-hot    Build OMBI with HOT_BUCKETS = 2^10..2^18"
+	@echo "  make sweep-bw-v3  Build OMBI v3 with BW_MULT = 1,2,3,4,6,8"
+	@echo "  make sweep-hot-v3 Build OMBI v3 with HOT_BUCKETS = 2^10..2^18"
 	@echo "  make clean        Remove all binaries"
 	@echo ""
 	@echo "  Individual baselines:"
@@ -76,7 +78,8 @@ all: ombi ombi-variants baselines smartq tools
 # OMBI variants (opt + v2)
 # =============================================================================
 ombi-variants: $(BIN_DIR)/ombi_opt $(BIN_DIR)/ombi_optC \
-               $(BIN_DIR)/ombi_v2 $(BIN_DIR)/ombi_v2C
+               $(BIN_DIR)/ombi_v2 $(BIN_DIR)/ombi_v2C \
+               $(BIN_DIR)/ombi_v3 $(BIN_DIR)/ombi_v3C
 
 # =============================================================================
 # OMBI — core algorithm
@@ -104,6 +107,13 @@ $(BIN_DIR)/ombi_v2: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_opt2.cc $(OMBI_DIR)/omb
 
 $(BIN_DIR)/ombi_v2C: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_opt2.cc $(OMBI_DIR)/ombi_opt2.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -DOMBI_V2 -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_opt2.cc $(INFRA_SRC) $(LDFLAGS)
+
+# OMBI v3 with Two-Level Bitmap + Pool Allocator (uses ombi_v3.cc)
+$(BIN_DIR)/ombi_v3: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(OMBI_DIR)/ombi_v3.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V3 -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS)
+
+$(BIN_DIR)/ombi_v3C: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(OMBI_DIR)/ombi_v3.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V3 -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS)
 
 # =============================================================================
 # Baselines — 8 Dijkstra variants
@@ -214,6 +224,29 @@ sweep-hot: | $(BIN_DIR)
 			-o $(BIN_DIR)/ombi_hot$${exp}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi.cc $(INFRA_SRC) $(LDFLAGS); \
 	done
 	@echo "HOT_BUCKETS sweep complete: ombi_hot{10..18}"
+
+# BW_MULT sweep for OMBI v3
+sweep-bw-v3: | $(BIN_DIR)
+	@for bw in $(BW_VALS); do \
+		echo "Building ombi_v3_bw$${bw}..."; \
+		$(CXX) $(CXXFLAGS) -DOMBI_V3 -DOMBI_BW_MULT=$${bw} -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v3_bw$${bw} $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS); \
+		$(CXX) $(CXXFLAGS) -DOMBI_V3 -DOMBI_BW_MULT=$${bw} -DCHECKSUM -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v3_bw$${bw}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS); \
+	done
+	@echo "BW_MULT v3 sweep complete: ombi_v3_bw{1,2,3,4,6,8}"
+
+# HOT_BUCKETS sweep for OMBI v3
+sweep-hot-v3: | $(BIN_DIR)
+	@for exp in $(HOT_VALS); do \
+		hb=$$((1 << $${exp})); \
+		echo "Building ombi_v3_hot$${exp} (HOT_BUCKETS=$$hb)..."; \
+		$(CXX) $(CXXFLAGS) -DOMBI_V3 -DOMBI_HOT_BUCKETS="(1 << $${exp})" -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v3_hot$${exp} $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS); \
+		$(CXX) $(CXXFLAGS) -DOMBI_V3 -DOMBI_HOT_BUCKETS="(1 << $${exp})" -DCHECKSUM -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v3_hot$${exp}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS); \
+	done
+	@echo "HOT_BUCKETS v3 sweep complete: ombi_v3_hot{10..18}"
 
 # =============================================================================
 # Clean
