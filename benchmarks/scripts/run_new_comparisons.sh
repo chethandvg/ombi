@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # HISTORICAL — This script references the old directory structure.
 # Use run_benchmark.sh instead for the reorganized repository.

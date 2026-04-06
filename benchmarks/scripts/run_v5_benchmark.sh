@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # run_v5_benchmark.sh — Focused benchmark for OMBI v5/v5s correctness fix
 #

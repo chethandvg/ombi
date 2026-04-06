@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # run_checksum.sh — Quick correctness verification (no timing)
 #

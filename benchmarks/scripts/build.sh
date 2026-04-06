@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # build.sh — Build all OMBI implementations
 #

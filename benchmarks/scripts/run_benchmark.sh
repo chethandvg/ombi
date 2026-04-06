@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # run_benchmark.sh — Run OMBI vs all baselines on DIMACS road networks
 #

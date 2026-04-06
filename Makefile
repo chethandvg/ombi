@@ -34,7 +34,7 @@ BIN_DIR   = bin
 # =============================================================================
 # Phony targets
 # =============================================================================
-.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot sweep-bw-v3 sweep-hot-v3 sweep-bw-v5 sweep-hot-v5 clean help
+.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot sweep-bw-v3 sweep-hot-v3 sweep-bw-v5 sweep-hot-v5 clean fix-eol help
 
 help:
 	@echo ""
@@ -290,6 +290,14 @@ sweep-hot-v5: | $(BIN_DIR)
 	@echo "HOT_BUCKETS v5 sweep complete: ombi_v5_hot{10..18}"
 
 # =============================================================================
+# Fix line endings (WSL/Windows users — run once after clone or if scripts fail)
+# =============================================================================
+fix-eol:
+	@echo "Fixing line endings in shell scripts..."
+	@find benchmarks/scripts -name '*.sh' -exec sed -i 's/\r$$//' {} +
+	@chmod +x benchmarks/scripts/*.sh
+	@echo "Done — scripts are now executable."
+
 # Clean
 # =============================================================================
 clean:

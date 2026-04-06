@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # merge_and_postprocess.sh — Merge stats from Run #1 into Run #2 and regenerate
 # Section 6 (Scalability) + Summary tables that were empty/truncated.

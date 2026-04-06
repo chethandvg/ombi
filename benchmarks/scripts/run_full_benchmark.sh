@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck shell=bash
 #
 # run_full_benchmark.sh — Comprehensive FAIR benchmark: OMBI vs all baselines
 #
