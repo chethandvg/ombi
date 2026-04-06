@@ -34,7 +34,7 @@ BIN_DIR   = bin
 # =============================================================================
 # Phony targets
 # =============================================================================
-.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot sweep-bw-v3 sweep-hot-v3 clean help
+.PHONY: all ombi ombi-variants baselines smartq tools sweep-bw sweep-hot sweep-bw-v3 sweep-hot-v3 sweep-bw-v5 sweep-hot-v5 clean help
 
 help:
 	@echo ""
@@ -51,6 +51,8 @@ help:
 	@echo "  make sweep-hot    Build OMBI with HOT_BUCKETS = 2^10..2^18"
 	@echo "  make sweep-bw-v3  Build OMBI v3 with BW_MULT = 1,2,3,4,6,8"
 	@echo "  make sweep-hot-v3 Build OMBI v3 with HOT_BUCKETS = 2^10..2^18"
+	@echo "  make sweep-bw-v5  Build OMBI v5 with BW_MULT = 1,2,3,4,6,8"
+	@echo "  make sweep-hot-v5 Build OMBI v5 with HOT_BUCKETS = 2^10..2^18"
 	@echo "  make clean        Remove all binaries"
 	@echo ""
 	@echo "  Individual baselines:"
@@ -79,7 +81,9 @@ all: ombi ombi-variants baselines smartq tools
 # =============================================================================
 ombi-variants: $(BIN_DIR)/ombi_opt $(BIN_DIR)/ombi_optC \
                $(BIN_DIR)/ombi_v2 $(BIN_DIR)/ombi_v2C \
-               $(BIN_DIR)/ombi_v3 $(BIN_DIR)/ombi_v3C
+               $(BIN_DIR)/ombi_v3 $(BIN_DIR)/ombi_v3C \
+               $(BIN_DIR)/ombi_v5 $(BIN_DIR)/ombi_v5C \
+               $(BIN_DIR)/ombi_v5s $(BIN_DIR)/ombi_v5sC
 
 # =============================================================================
 # OMBI — core algorithm
@@ -114,6 +118,20 @@ $(BIN_DIR)/ombi_v3: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(OMBI_DIR)/ombi_
 
 $(BIN_DIR)/ombi_v3C: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(OMBI_DIR)/ombi_v3.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -DOMBI_V3 -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS)
+
+# OMBI v5 with Adaptive Bucket Width (correctness fix for low-C grids)
+$(BIN_DIR)/ombi_v5: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(OMBI_DIR)/ombi_v5.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V5 -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS)
+
+$(BIN_DIR)/ombi_v5C: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(OMBI_DIR)/ombi_v5.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V5 -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS)
+
+# OMBI v5s with Sorted-Insert (alternative correctness fix)
+$(BIN_DIR)/ombi_v5s: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(OMBI_DIR)/ombi_v5.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V5 -DOMBI_V5S -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS)
+
+$(BIN_DIR)/ombi_v5sC: $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(OMBI_DIR)/ombi_v5.h $(INFRA_DIR)/nodearc.h $(INFRA_SRC) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -DOMBI_V5 -DOMBI_V5S -DCHECKSUM -I$(INFRA_DIR) -o $@ $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS)
 
 # =============================================================================
 # Baselines — 8 Dijkstra variants
@@ -247,6 +265,29 @@ sweep-hot-v3: | $(BIN_DIR)
 			-o $(BIN_DIR)/ombi_v3_hot$${exp}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v3.cc $(INFRA_SRC) $(LDFLAGS); \
 	done
 	@echo "HOT_BUCKETS v3 sweep complete: ombi_v3_hot{10..18}"
+
+# BW_MULT sweep for OMBI v5
+sweep-bw-v5: | $(BIN_DIR)
+	@for bw in $(BW_VALS); do \
+		echo "Building ombi_v5_bw$${bw}..."; \
+		$(CXX) $(CXXFLAGS) -DOMBI_V5 -DOMBI_BW_MULT=$${bw} -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v5_bw$${bw} $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS); \
+		$(CXX) $(CXXFLAGS) -DOMBI_V5 -DOMBI_BW_MULT=$${bw} -DCHECKSUM -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v5_bw$${bw}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS); \
+	done
+	@echo "BW_MULT v5 sweep complete: ombi_v5_bw{1,2,3,4,6,8}"
+
+# HOT_BUCKETS sweep for OMBI v5
+sweep-hot-v5: | $(BIN_DIR)
+	@for exp in $(HOT_VALS); do \
+		hb=$$((1 << $${exp})); \
+		echo "Building ombi_v5_hot$${exp} (HOT_BUCKETS=$$hb)..."; \
+		$(CXX) $(CXXFLAGS) -DOMBI_V5 -DOMBI_HOT_BUCKETS="(1 << $${exp})" -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v5_hot$${exp} $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS); \
+		$(CXX) $(CXXFLAGS) -DOMBI_V5 -DOMBI_HOT_BUCKETS="(1 << $${exp})" -DCHECKSUM -I$(INFRA_DIR) \
+			-o $(BIN_DIR)/ombi_v5_hot$${exp}C $(OMBI_DIR)/main.cc $(OMBI_DIR)/ombi_v5.cc $(INFRA_SRC) $(LDFLAGS); \
+	done
+	@echo "HOT_BUCKETS v5 sweep complete: ombi_v5_hot{10..18}"
 
 # =============================================================================
 # Clean
