@@ -17,7 +17,10 @@
 #   ./benchmarks/scripts/run_v5_benchmark.sh 2>&1 | tee benchmarks/results/v5_benchmark_$(date +%Y%m%d_%H%M%S).log
 # ═══════════════════════════════════════════════════════════════════════════════
 
-set -euo pipefail
+set -uo pipefail
+# Note: we intentionally do NOT use `set -e` globally. Critical sections
+# use explicit error checks. The grid section at the end may crash/OOM on
+# large grids, and we must preserve all prior benchmark data.
 
 # =====================================================================
 # CONFIGURATION
@@ -466,43 +469,11 @@ for graph in "${ROAD_GRAPHS[@]}"; do
 done
 
 # =====================================================================
-# SECTION 2: v5/v5s ON GRID GRAPHS (CORRECTNESS VALIDATION)
-# =====================================================================
-if [ ${#GRID_GRAPHS[@]} -gt 0 ]; then
-    echo "╔══════════════════════════════════════════════════════════════════════════════╗"
-    echo "║  SECTION 2: Grid Graphs — v5/v5s Correctness + Performance                 ║"
-    echo "║  ⚡ KEY TEST: Low-C grids (w100) where v3 FAILED — v5 should PASS ✅       ║"
-    echo "╚══════════════════════════════════════════════════════════════════════════════╝"
-    echo ""
-
-    for graph in "${GRID_GRAPHS[@]}"; do
-        gr_file="${DATA_DIR}/${graph}.gr"
-        ss_file="${DATA_DIR}/${graph}.ss"
-
-        [ ! -f "${gr_file}" ] || [ ! -f "${ss_file}" ] && continue
-
-        echo "┌───────────────────────────────────────────────────────────────────────────────"
-        echo "│  GRID: ${graph}  ($(get_node_count "${gr_file}") nodes)"
-        echo "├───────────────────────────────────────────────────────────────────────────────"
-        print_table_header
-
-        BH_REF_CHECKSUM=""
-        for impl_spec in "${GRID_IMPLS[@]}"; do
-            run_impl_benchmark "grid" "${graph}" "${graph}" "${impl_spec}" "${STATS_CSV}" || true
-        done
-
-        echo "│  (*) SQ 'updates' = bucket moves only."
-        echo "└───────────────────────────────────────────────────────────────────────────────"
-        echo ""
-    done
-fi
-
-# =====================================================================
-# SECTION 3: BW_MULT SENSITIVITY SWEEP — OMBI v5
+# SECTION 2: BW_MULT SENSITIVITY SWEEP — OMBI v5
 # =====================================================================
 if [ "${bw_v5_available}" -gt 0 ]; then
     echo "╔══════════════════════════════════════════════════════════════════════════════╗"
-    echo "║  SECTION 3: BW_MULT Sensitivity Sweep — OMBI v5 (bw = {1..8} × minArc)    ║"
+    echo "║  SECTION 2: BW_MULT Sensitivity Sweep — OMBI v5 (bw = {1..8} × minArc)    ║"
     echo "╚══════════════════════════════════════════════════════════════════════════════╝"
     echo ""
 
@@ -553,11 +524,11 @@ if [ "${bw_v5_available}" -gt 0 ]; then
 fi
 
 # =====================================================================
-# SECTION 4: HOT_BUCKETS SIZE SWEEP — OMBI v5
+# SECTION 3: HOT_BUCKETS SIZE SWEEP — OMBI v5
 # =====================================================================
 if [ "${hot_v5_available}" -gt 0 ]; then
     echo "╔══════════════════════════════════════════════════════════════════════════════╗"
-    echo "║  SECTION 4: HOT_BUCKETS Size Sweep — OMBI v5 (2^10 .. 2^18)               ║"
+    echo "║  SECTION 3: HOT_BUCKETS Size Sweep — OMBI v5 (2^10 .. 2^18)               ║"
     echo "╚══════════════════════════════════════════════════════════════════════════════╝"
     echo ""
 
@@ -609,7 +580,8 @@ if [ "${hot_v5_available}" -gt 0 ]; then
 fi
 
 # =====================================================================
-# SUMMARY TABLES
+# ROAD NETWORK SUMMARY TABLE
+# (printed BEFORE grids so it's safe even if grids crash/OOM)
 # =====================================================================
 echo "╔══════════════════════════════════════════════════════════════════════════════╗"
 echo "║  SUMMARY: v5 vs v3 vs SQ vs BH — Road Networks                            ║"
@@ -637,38 +609,9 @@ for label in "bh" "sq" "ombi" "ombi_v3" "r2" "ombi_v5" "ombi_v5s"; do
 done
 echo ""
 
-# Grid correctness summary
-if [ ${#GRID_GRAPHS[@]} -gt 0 ]; then
-    echo "╔══════════════════════════════════════════════════════════════════════════════╗"
-    echo "║  CORRECTNESS: Grid Graph Checksum Verification                             ║"
-    echo "║  v3 failed on low-C grids (w100). v5 should pass ALL.                      ║"
-    echo "╚══════════════════════════════════════════════════════════════════════════════╝"
-    echo ""
-    printf "  %-30s" "Grid"
-    printf " │ %-8s │ %-8s │ %-8s │ %-8s │ %-8s │ %-8s\n" \
-           "bh" "dial" "sq" "r2" "v5" "v5s"
-    printf "  ──────────────────────────────"
-    printf "─┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────\n"
-
-    for graph in "${GRID_GRAPHS[@]}"; do
-        printf "  %-30s" "${graph}"
-        for label in "bh" "dial" "sq" "r2" "ombi_v5" "ombi_v5s"; do
-            match=$(grep "^${graph},grid,${label}," "${CHECKSUM_CSV}" | head -1 | cut -d, -f5)
-            if [ "${match}" = "YES" ]; then
-                printf " │   %-5s " "✅"
-            elif [ -z "${match}" ]; then
-                printf " │   %-5s " "N/A"
-            else
-                printf " │   %-5s " "❌"
-            fi
-        done
-        echo ""
-    done
-    echo ""
-fi
-
 # =====================================================================
 # METHODOLOGY NOTES
+# (printed before grids — preserved even if grid section crashes)
 # =====================================================================
 echo "╔══════════════════════════════════════════════════════════════════════════════╗"
 echo "║  METHODOLOGY & v5 DESIGN NOTES                                             ║"
@@ -690,6 +633,118 @@ echo "  COMPILER:  g++ -std=c++17 -Wall -O3 -DNDEBUG"
 echo "  TIMING:    ${TOTAL_RUNS} runs, drop min & max → ${EFF_RUNS} effective"
 echo "  CI:        95% (t-distribution, df=$((EFF_RUNS-1)))"
 echo ""
+
+# Print intermediate output files (road + sweep results are safe now)
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "  Road + Sweep results complete. Output files so far:"
+echo "    Statistics:     ${STATS_CSV}"
+echo "    Checksums:      ${CHECKSUM_CSV}"
+echo "    BW v5 sweep:    ${BW_V5_CSV}"
+echo "    HOT v5 sweep:   ${HOT_V5_CSV}"
+echo "  Elapsed: $((SECONDS / 60))m $((SECONDS % 60))s"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo ""
+
+# =====================================================================
+# SECTION 4: v5/v5s ON GRID GRAPHS (CORRECTNESS VALIDATION)
+# ═════════════════════════════════════════════════════════════════════
+# ⚠️  This section runs LAST because:
+#   - Large grids (3162×3162 = 10M nodes) are memory-intensive and may OOM
+#   - Low-C grids may expose algorithmic edge cases → potential crashes
+#   - Running this last ensures all road/sweep results are already saved
+#
+# CRASH PROTECTION:
+#   - Each grid×impl combination runs with its own error trap
+#   - If an impl crashes/OOMs on a grid, we log the failure and continue
+#   - No timeout — each run is allowed to complete naturally
+#   - All CSV data is written incrementally — whatever completes is saved
+# =====================================================================
+
+if [ ${#GRID_GRAPHS[@]} -gt 0 ]; then
+    echo "╔══════════════════════════════════════════════════════════════════════════════╗"
+    echo "║  SECTION 4: Grid Graphs — v5/v5s Correctness + Performance                 ║"
+    echo "║  ⚡ KEY TEST: Low-C grids (w100) where v3 FAILED — v5 should PASS ✅       ║"
+    echo "║  ⚠️  Runs LAST — crash-protected. No timeout (runs to completion).          ║"
+    echo "╚══════════════════════════════════════════════════════════════════════════════╝"
+    echo ""
+
+    GRID_COMPLETED=0
+    GRID_CRASHED=0
+
+    for graph in "${GRID_GRAPHS[@]}"; do
+        gr_file="${DATA_DIR}/${graph}.gr"
+        ss_file="${DATA_DIR}/${graph}.ss"
+
+        [ ! -f "${gr_file}" ] || [ ! -f "${ss_file}" ] && continue
+
+        echo "┌───────────────────────────────────────────────────────────────────────────────"
+        echo "│  GRID: ${graph}  ($(get_node_count "${gr_file}") nodes)"
+        echo "├───────────────────────────────────────────────────────────────────────────────"
+        print_table_header
+
+        BH_REF_CHECKSUM=""
+        for impl_spec in "${GRID_IMPLS[@]}"; do
+            IFS=':' read -r impl_label impl_tbin impl_cbin <<< "${impl_spec}"
+
+            # --- Crash-protected run ---
+            # We run each impl in a controlled way: catch crashes and OOMs
+            (
+                # Run in subshell so failures don't propagate
+                run_impl_benchmark "grid" "${graph}" "${graph}" "${impl_spec}" "${STATS_CSV}"
+            ) 2>&1
+            exit_code=$?
+
+            if [ ${exit_code} -ne 0 ]; then
+                # Impl crashed or failed
+                printf "│  %-10s │ %10s │ %8s │ %8s │ %8s │ %10s │ %10s │ %10s │ %8s │ %s\n" \
+                       "${impl_label}" "CRASHED" "-" "-" "-" "-" "-" "-" "-" "💥"
+                echo "${graph},grid,${impl_label},0,0,0,0,0,0,0,0,0,N/A,N/A,N/A,N/A,N/A,CRASH" >> "${STATS_CSV}"
+                echo "${graph},grid,${impl_label},CRASH,CRASH" >> "${CHECKSUM_CSV}"
+                GRID_CRASHED=$((GRID_CRASHED + 1))
+                echo "│  ⚠️  ${impl_label} crashed/failed on ${graph} (exit=${exit_code}) — continuing..."
+            else
+                GRID_COMPLETED=$((GRID_COMPLETED + 1))
+            fi
+        done
+
+        echo "│  (*) SQ 'updates' = bucket moves only."
+        echo "└───────────────────────────────────────────────────────────────────────────────"
+        echo ""
+    done
+
+    # Grid correctness summary
+    echo "╔══════════════════════════════════════════════════════════════════════════════╗"
+    echo "║  CORRECTNESS: Grid Graph Checksum Verification                             ║"
+    echo "║  v3 failed on low-C grids (w100). v5 should pass ALL.                      ║"
+    echo "╚══════════════════════════════════════════════════════════════════════════════╝"
+    echo ""
+    printf "  %-30s" "Grid"
+    printf " │ %-8s │ %-8s │ %-8s │ %-8s │ %-8s │ %-8s\n" \
+           "bh" "dial" "sq" "r2" "v5" "v5s"
+    printf "  ──────────────────────────────"
+    printf "─┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────\n"
+
+    for graph in "${GRID_GRAPHS[@]}"; do
+        printf "  %-30s" "${graph}"
+        for label in "bh" "dial" "sq" "r2" "ombi_v5" "ombi_v5s"; do
+            match=$(grep "^${graph},grid,${label}," "${CHECKSUM_CSV}" | head -1 | cut -d, -f5)
+            if [ "${match}" = "YES" ]; then
+                printf " │   %-5s " "✅"
+            elif [ "${match}" = "CRASH" ]; then
+                printf " │   %-5s " "💥"
+            elif [ -z "${match}" ]; then
+                printf " │   %-5s " "N/A"
+            else
+                printf " │   %-5s " "❌"
+            fi
+        done
+        echo ""
+    done
+    echo ""
+
+    echo "  Grid benchmark: ${GRID_COMPLETED} completed, ${GRID_CRASHED} crashed/failed"
+    echo ""
+fi
 
 # =====================================================================
 # DONE
