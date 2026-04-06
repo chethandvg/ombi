@@ -36,7 +36,7 @@ All benchmarks were compiled and executed on a single machine to eliminate cross
 | Property | Value |
 |----------|-------|
 | **Compiler** | `g++ -std=c++17 -Wall -O3 -DNDEBUG` |
-| **Timing** | 11 repeated runs per configuration; the single lowest and single highest are dropped; median of the remaining 9 is reported |
+| **Timing** | 11 repeated runs per configuration; the single lowest and single highest are dropped; median of the remaining 9 is reported. Each run executes 100 queries and reports the average ms-per-query; the median is taken over the 9 per-run averages. |
 | **Warmup** | 1 un-timed warmup query precedes measurement |
 | **Queries** | 100 single-source shortest-path (SSSP) queries per run; sources are pre-selected and shared across all implementations |
 
@@ -191,7 +191,7 @@ This section measures how OMBI's performance changes as the bucket width multipl
 
 Performance monotonically improves as bucket width increases from 1 to 8 on all road graphs. Wider buckets reduce the number of bitmap words to scan per extract-min operation. The improvement from bw=1 to bw=8 ranges from 7% (BAY) to 11% (FLA).
 
-This is significant because the Dinitz correctness bound requires `bw ≤ minWeight` for guaranteed correctness. On road networks (where minWeight is typically ≥ 1), using `bw = 4 × minWeight` or `bw = 8 × minWeight` works correctly in practice because the graph structure provides tolerance beyond the theoretical bound. However, on grids with minWeight = 1 and maxWeight = 100, bw > 1 causes incorrect results (see Section 13).
+This is significant because the Dinitz correctness bound requires `bw ≤ minWeight` for guaranteed correctness. On road networks (where minWeight is typically much larger than 1, ranging from tens to thousands), using `bw = 4 × minWeight` or `bw = 8 × minWeight` works correctly in practice because the graph structure provides tolerance beyond the theoretical bound. However, on grids with minWeight = 1 and maxWeight = 100, bw > 1 causes incorrect results (see Section 13).
 
 **For OMBI v3**, the sensitivity is flatter — the v3 architecture already handles the cold/hot partition more efficiently, so wider buckets provide diminishing additional benefit.
 
@@ -330,7 +330,7 @@ When C is small, simple bucket arrays with O(C) scan become nearly free. Dial's 
 | 1000² | 1M | 189.72 | 160.57 | 336.78 | 288.05 | **80.07** | 111.32 | 92.39 | 96.10 | 125.07† | 115.90† |
 | 3162² | 10M | 2622.46 | 2258.25 | 5118.74 | 4842.84 | **1085.79** | 1622.12 | 1288.24 | 1427.82 | 1715.01† | 1625.80† |
 
-> † OMBI checksums do not match on low-C grids. See Section 13 for explanation.
+> † OMBI checksums do not match on low-C grids because `bw = 4 × minWeight = 4` exceeds the Dinitz correctness bound (`bw ≤ minWeight`, here minWeight = 1). See Section 13 for full analysis.
 
 ### High-C Grids (maxW = 100,000)
 
@@ -526,7 +526,7 @@ This section documents the checksum-based correctness verification. Each impleme
 
 ### Why OMBI Fails on Low-C Grids
 
-OMBI with bw=4 produces **incorrect distances** on low-C grids (maxW=100, minW=1). The root cause is that `bw = 4 × minWeight = 4 × 1 = 4`, which exceeds the Dinitz correctness bound (`bw ≤ minWeight = 1`). With bucket width 4, multiple distinct distances map to the same bucket, and the extraction order can violate Dijkstra's monotonicity guarantee.
+OMBI with bw=4 produces **incorrect distances** on low-C grids (maxW=100, minW=1). The root cause is that `bw = 4 × minWeight = 4 × 1 = 4`, which exceeds the Dinitz correctness bound (`bw ≤ minWeight`, here minWeight = 1). With bucket width 4, multiple distinct distances map to the same bucket, and the extraction order can violate Dijkstra's monotonicity guarantee.
 
 On road networks, bw=4 is correct because the graph structure (sparse, long shortest paths, large min edge weights) provides tolerance beyond the Dinitz bound. But this tolerance is not guaranteed for all graph classes.
 
