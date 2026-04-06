@@ -138,7 +138,7 @@ void OmbiQueue::addToL0(int bi, int v, long long d)
     int cur = l0Head[bi];
 
     /* Find insertion point: first entry with dist > d */
-    while (cur >= 0 && pool[cur].dist <= d)
+    while (cur >= 0 && pool[cur].dist < d)
     {
         prev = cur;
         cur = pool[cur].next;
@@ -325,7 +325,7 @@ void OmbiQueue::redistributeL1ToL0(int l1Bi, long long bw, long long l1bw,
             /* Sorted insert into L0 bucket */
             int sprev = -1;
             int scur = l0Head[bi];
-            while (scur >= 0 && pool[scur].dist <= d)
+            while (scur >= 0 && pool[scur].dist < d)
             {
                 sprev = scur;
                 scur = pool[scur].next;
